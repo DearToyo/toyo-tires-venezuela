@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-const START = 240   // 4:00
-const END   = 384   // 6:24
+const START = 0    // 0:00
+const END   = 7    // 0:07
 
 export default function HeroVideo() {
   const ref = useRef(null)
