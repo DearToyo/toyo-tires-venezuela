@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react'
 
 const START = 0    // 0:00
-const END   = 7    // 0:07
+const END   = 9    // 0:09
 
 export default function HeroVideo() {
   const ref = useRef(null)
