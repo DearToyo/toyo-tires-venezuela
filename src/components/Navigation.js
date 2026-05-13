@@ -72,23 +72,18 @@ export default function Navigation() {
         <div className="container-custom">
           <div className="flex justify-between items-center h-20">
 
-            {/* Logo — CSS mask so the PNG background is never visible */}
+            {/* Logo — transparent SVG: white on dark hero, blue on white nav */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <div
-                className="h-10 w-36 transition-all duration-500"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo_toyo_clean.png"
+                alt="Toyo Tires"
+                className="h-9 w-auto object-contain transition-all duration-500"
                 style={{
-                  backgroundColor:    (scrolled || !isHome) ? '#0062B0' : '#ffffff',
-                  WebkitMaskImage:    'url(/images/logo_toyo.png)',
-                  WebkitMaskSize:     'contain',
-                  WebkitMaskRepeat:   'no-repeat',
-                  WebkitMaskPosition: 'left center',
-                  maskImage:          'url(/images/logo_toyo.png)',
-                  maskSize:           'contain',
-                  maskRepeat:         'no-repeat',
-                  maskPosition:       'left center',
+                  filter: (scrolled || !isHome)
+                    ? 'none'
+                    : 'brightness(0) invert(1)',
                 }}
-                role="img"
-                aria-label="Toyo Tires"
               />
             </Link>
 

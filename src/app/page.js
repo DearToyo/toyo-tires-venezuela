@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Search, MapPin, ArrowRight, Shield, Award, Zap, Globe } from 'lucide-react'
+import HeroVideo from '@/components/HeroVideo'
 
 /* ── Static data ──────────────────────────────────────── */
 const stats = [
@@ -63,39 +64,26 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="relative min-h-screen bg-toyo-black overflow-hidden flex items-center">
 
-        {/* Background grid */}
-        <div className="absolute inset-0 bg-grid-pattern pointer-events-none" />
+        {/* Background video — 4:00 to 6:24 clip */}
+        <HeroVideo />
 
-        {/* Blue diagonal accent */}
-        <div
-          className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none"
-          style={{
-            background: 'linear-gradient(135deg, transparent 0%, rgba(0,98,176,0.07) 50%, rgba(0,98,176,0.15) 100%)',
-          }}
-        />
-        <div className="absolute top-0 right-64 bottom-0 w-px bg-gradient-to-b from-transparent via-toyo-blue/30 to-transparent pointer-events-none" />
-
-        {/* Tire image — right side */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[52%] h-full flex items-center justify-end pointer-events-none select-none">
-          <div className="relative w-full h-full animate-float-tire">
-            <Image
-              src="/images/productos/open-country-rt-trail/OPRT_Trail_35x12_50R17_Right.png"
-              alt="Toyo Open Country"
-              fill
-              sizes="52vw"
-              className="object-contain object-right opacity-95"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Left gradient fade for readability */}
+        {/* Dark overlays for text readability */}
+        <div className="absolute inset-0 bg-toyo-black/40 pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(10,10,10,1) 35%, rgba(10,10,10,0.6) 55%, transparent 75%)',
+            background: 'linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.2) 100%)',
           }}
         />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 40%)',
+          }}
+        />
+
+        {/* Blue accent line */}
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-toyo-blue pointer-events-none" />
 
         {/* Content */}
         <div className="relative container-custom pt-32 pb-24 z-10">
@@ -110,7 +98,7 @@ export default function Home() {
               <span className="text-gradient-blue">van más lejos.</span>
             </h1>
 
-            <p className="text-lg text-gray-400 leading-relaxed mb-10 max-w-lg animate-fade-in-up-d2">
+            <p className="text-lg text-gray-300 leading-relaxed mb-10 max-w-lg animate-fade-in-up-d2">
               Toyo Tires Venezuela — calidad japonesa de primer nivel, distribuida
               por DEAR&nbsp;C.A. desde 1967. Para tu camioneta, SUV o auto deportivo.
             </p>
@@ -129,7 +117,7 @@ export default function Home() {
         </div>
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-toyo-black to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-toyo-black to-transparent pointer-events-none" />
       </section>
 
       {/* ── STATS STRIP ──────────────────────────────────── */}

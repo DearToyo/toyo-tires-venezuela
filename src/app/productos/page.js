@@ -24,7 +24,7 @@ function TireCard({ model }) {
                     flex flex-col overflow-hidden hover:-translate-y-1 hover:shadow-dark-card">
 
       {/* Image area — light background so mix-blend-mode:multiply erases white tire backgrounds */}
-      <div className="relative h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+      <div className="relative h-52 bg-white flex items-center justify-center overflow-hidden">
         {model.image ? (
           <Image
             src={model.image}

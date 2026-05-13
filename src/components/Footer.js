@@ -29,22 +29,12 @@ export default function Footer() {
 
             {/* Brand column */}
             <div className="lg:col-span-1">
-              {/* Toyo logo in white — CSS mask removes the PNG background */}
-              <div
-                className="h-11 w-40 mb-6"
-                style={{
-                  backgroundColor:    '#ffffff',
-                  WebkitMaskImage:    'url(/images/logo_toyo.png)',
-                  WebkitMaskSize:     'contain',
-                  WebkitMaskRepeat:   'no-repeat',
-                  WebkitMaskPosition: 'left center',
-                  maskImage:          'url(/images/logo_toyo.png)',
-                  maskSize:           'contain',
-                  maskRepeat:         'no-repeat',
-                  maskPosition:       'left center',
-                }}
-                role="img"
-                aria-label="Toyo Tires"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/logo_toyo_clean.png"
+                alt="Toyo Tires"
+                className="h-10 w-auto mb-6"
+                style={{ filter: 'brightness(0) invert(1)' }}
               />
               <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 Neumáticos de ingeniería japonesa, distribuidos con orgullo en Venezuela desde 1967.
@@ -53,23 +43,14 @@ export default function Footer() {
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">
                   Distribuidor oficial
                 </p>
-                {/* DEAR logo in white — CSS mask removes the PNG background */}
-                <div
-                  className="h-8 w-28 opacity-60 hover:opacity-100 transition-opacity"
-                  style={{
-                    backgroundColor:    '#ffffff',
-                    WebkitMaskImage:    'url(/images/logo_dear.png)',
-                    WebkitMaskSize:     'contain',
-                    WebkitMaskRepeat:   'no-repeat',
-                    WebkitMaskPosition: 'left center',
-                    maskImage:          'url(/images/logo_dear.png)',
-                    maskSize:           'contain',
-                    maskRepeat:         'no-repeat',
-                    maskPosition:       'left center',
-                  }}
-                  role="img"
-                  aria-label="DEAR C.A."
-                />
+                <div className="inline-block bg-white/10 px-3 py-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/logo_dear.png"
+                    alt="DEAR C.A."
+                    className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
               </div>
               <a
                 href="https://instagram.com/toyotiresvzla"
