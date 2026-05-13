@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Search } from 'lucide-react'
@@ -38,7 +37,6 @@ export default function Navigation() {
     : 'bg-white shadow-sm'
 
   const textColor = scrolled || !isHome ? 'text-gray-800' : 'text-white'
-  const logoFilter = scrolled || !isHome ? '' : 'brightness-0 invert'
 
   return (
     <>
@@ -74,15 +72,23 @@ export default function Navigation() {
         <div className="container-custom">
           <div className="flex justify-between items-center h-20">
 
-            {/* Logo */}
+            {/* Logo — CSS mask so the PNG background is never visible */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <Image
-                src="/images/logo_toyo.png"
-                alt="Toyo Tires"
-                width={120}
-                height={48}
-                className={`h-10 w-auto object-contain transition-all duration-500 ${logoFilter}`}
-                priority
+              <div
+                className="h-10 w-36 transition-all duration-500"
+                style={{
+                  backgroundColor:    (scrolled || !isHome) ? '#0062B0' : '#ffffff',
+                  WebkitMaskImage:    'url(/images/logo_toyo.png)',
+                  WebkitMaskSize:     'contain',
+                  WebkitMaskRepeat:   'no-repeat',
+                  WebkitMaskPosition: 'left center',
+                  maskImage:          'url(/images/logo_toyo.png)',
+                  maskSize:           'contain',
+                  maskRepeat:         'no-repeat',
+                  maskPosition:       'left center',
+                }}
+                role="img"
+                aria-label="Toyo Tires"
               />
             </Link>
 

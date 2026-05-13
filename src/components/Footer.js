@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Instagram, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 const productLinks = [
@@ -30,12 +29,22 @@ export default function Footer() {
 
             {/* Brand column */}
             <div className="lg:col-span-1">
-              <Image
-                src="/images/logo_toyo.png"
-                alt="Toyo Tires"
-                width={130}
-                height={52}
-                className="h-11 w-auto object-contain brightness-0 invert mb-6"
+              {/* Toyo logo in white — CSS mask removes the PNG background */}
+              <div
+                className="h-11 w-40 mb-6"
+                style={{
+                  backgroundColor:    '#ffffff',
+                  WebkitMaskImage:    'url(/images/logo_toyo.png)',
+                  WebkitMaskSize:     'contain',
+                  WebkitMaskRepeat:   'no-repeat',
+                  WebkitMaskPosition: 'left center',
+                  maskImage:          'url(/images/logo_toyo.png)',
+                  maskSize:           'contain',
+                  maskRepeat:         'no-repeat',
+                  maskPosition:       'left center',
+                }}
+                role="img"
+                aria-label="Toyo Tires"
               />
               <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 Neumáticos de ingeniería japonesa, distribuidos con orgullo en Venezuela desde 1967.
@@ -44,12 +53,22 @@ export default function Footer() {
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">
                   Distribuidor oficial
                 </p>
-                <Image
-                  src="/images/logo_dear.png"
-                  alt="DEAR C.A."
-                  width={90}
-                  height={36}
-                  className="h-8 w-auto object-contain opacity-70 hover:opacity-100 transition"
+                {/* DEAR logo in white — CSS mask removes the PNG background */}
+                <div
+                  className="h-8 w-28 opacity-60 hover:opacity-100 transition-opacity"
+                  style={{
+                    backgroundColor:    '#ffffff',
+                    WebkitMaskImage:    'url(/images/logo_dear.png)',
+                    WebkitMaskSize:     'contain',
+                    WebkitMaskRepeat:   'no-repeat',
+                    WebkitMaskPosition: 'left center',
+                    maskImage:          'url(/images/logo_dear.png)',
+                    maskSize:           'contain',
+                    maskRepeat:         'no-repeat',
+                    maskPosition:       'left center',
+                  }}
+                  role="img"
+                  aria-label="DEAR C.A."
                 />
               </div>
               <a

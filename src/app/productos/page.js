@@ -23,22 +23,22 @@ function TireCard({ model }) {
                     hover:border-toyo-blue transition-all duration-400
                     flex flex-col overflow-hidden hover:-translate-y-1 hover:shadow-dark-card">
 
-      {/* Image area */}
-      <div className="relative h-52 bg-gradient-to-br from-toyo-dark to-toyo-black flex items-center justify-center overflow-hidden">
+      {/* Image area — light background so mix-blend-mode:multiply erases white tire backgrounds */}
+      <div className="relative h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
         {model.image ? (
           <Image
             src={model.image}
             alt={model.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+            className="object-contain p-6 group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
           />
         ) : (
           <div className="text-center p-6">
-            <div className="text-4xl font-display font-black text-white/10 leading-none">
+            <div className="text-4xl font-display font-black text-gray-200 leading-none">
               TOYO
             </div>
-            <div className="text-xs text-gray-600 mt-2 font-display tracking-widest uppercase">
+            <div className="text-xs text-gray-400 mt-2 font-display tracking-widest uppercase">
               {model.name}
             </div>
           </div>

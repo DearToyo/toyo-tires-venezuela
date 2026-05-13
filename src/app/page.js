@@ -77,14 +77,13 @@ export default function Home() {
 
         {/* Tire image — right side */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[52%] h-full flex items-center justify-end pointer-events-none select-none">
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full animate-float-tire">
             <Image
               src="/images/productos/open-country-rt-trail/OPRT_Trail_35x12_50R17_Right.png"
               alt="Toyo Open Country"
               fill
               sizes="52vw"
-              className="object-contain object-right opacity-90 animate-fade-in"
-              style={{ filter: 'drop-shadow(-20px 0 80px rgba(0,98,176,0.25))' }}
+              className="object-contain object-right opacity-95"
               priority
             />
           </div>

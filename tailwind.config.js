@@ -72,6 +72,16 @@ module.exports = {
           '0%':   { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        floatTire: {
+          '0%, 100%': {
+            transform: 'translateY(0px) rotate(-4deg)',
+            filter:    'drop-shadow(-24px 0px 60px rgba(0,98,176,0.22))',
+          },
+          '50%': {
+            transform: 'translateY(-22px) rotate(0deg)',
+            filter:    'drop-shadow(-24px 18px 90px rgba(0,98,176,0.40))',
+          },
+        },
       },
       animation: {
         'fade-in-up':    'fadeInUp 0.7s ease both',
@@ -83,6 +93,7 @@ module.exports = {
         'slide-right':   'slideInRight 0.7s ease both',
         'scale-in':      'scaleIn 0.5s ease both',
         'spin-slow':     'spinSlow 18s linear infinite',
+        'float-tire':    'floatTire 7s ease-in-out infinite',
       },
       transitionTimingFunction: {
         'expo-out': 'cubic-bezier(0.16, 1, 0.3, 1)',
