@@ -32,7 +32,7 @@ export default function HeroVideo() {
       className="absolute inset-0 w-full h-full object-cover"
       style={{ opacity: 0.55 }}
     >
-      <source src="/videos/hero.mp4" type="video/mp4" />
+      <source src="https://res.cloudinary.com/dsatefhap/video/upload/v1778680663/download_wfe4eo.mp4" type="video/mp4" />
     </video>
   )
 }
