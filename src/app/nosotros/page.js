@@ -28,7 +28,7 @@ const toyoFacts = [
 
 export default function NosotrosPage() {
   return (
-    <div className="min-h-screen bg-toyo-black">
+    <div className="min-h-screen bg-gray-50">
 
       {/* Hero */}
       <section className="page-hero">
@@ -45,26 +45,26 @@ export default function NosotrosPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-20 bg-toyo-dark">
+      <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="label-tag">Nuestra historia</p>
-              <h2 className="section-heading text-white mb-6">
+              <h2 className="section-heading mb-6">
                 Una alianza entre dos<br />legados de excelencia.
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                Fundada en <strong className="text-white">1967</strong>, DEAR C.A. es una empresa venezolana
+              <p className="text-gray-500 leading-relaxed mb-4">
+                Fundada en <strong className="text-gray-900">1967</strong>, DEAR C.A. es una empresa venezolana
                 dedicada a la distribución de neumáticos de alta calidad. Con más de cinco décadas de
-                experiencia, nos hemos consolidado como el <strong className="text-white">distribuidor oficial
+                experiencia, nos hemos consolidado como el <strong className="text-gray-900">distribuidor oficial
                 exclusivo</strong> de Toyo Tires en Venezuela.
               </p>
-              <p className="text-gray-400 leading-relaxed mb-4">
+              <p className="text-gray-500 leading-relaxed mb-4">
                 Nuestra alianza con Toyo Tires representa la unión perfecta entre la tradición venezolana
                 y la innovación japonesa. Cada llanta que distribuimos lleva el respaldo de dos legados
                 de excelencia que trascienden fronteras.
               </p>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-500 leading-relaxed">
                 Hoy, continuamos comprometidos con ofrecer productos premium, servicio excepcional y
                 asesoría experta a nuestros clientes en todo el territorio nacional.
               </p>
@@ -78,7 +78,7 @@ export default function NosotrosPage() {
                 { n: '100%', l: 'Calidad garantizada' },
                 { n: '1',    l: 'Distribuidor oficial' },
               ].map(({ n, l }) => (
-                <div key={l} className="bg-toyo-surface border border-toyo-border p-6 text-center">
+                <div key={l} className="bg-gray-50 border border-gray-200 p-6 text-center hover:border-toyo-blue hover:shadow-md transition-all duration-300">
                   <div className="font-display font-black text-4xl text-toyo-blue mb-1">{n}</div>
                   <div className="text-xs font-display font-semibold uppercase tracking-wide text-gray-500">{l}</div>
                 </div>
@@ -89,32 +89,32 @@ export default function NosotrosPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-toyo-black">
+      <section className="py-20 bg-gray-50">
         <div className="container-narrow">
           <div className="text-center mb-14">
             <p className="label-tag justify-center">Historia</p>
-            <h2 className="section-heading text-white">Hitos de nuestra trayectoria</h2>
+            <h2 className="section-heading">Hitos de nuestra trayectoria</h2>
           </div>
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-16 top-0 bottom-0 w-px bg-toyo-border hidden md:block" />
+            <div className="absolute left-16 top-0 bottom-0 w-px bg-gray-200 hidden md:block" />
 
             <div className="space-y-8">
-              {milestones.map((m, i) => (
+              {milestones.map((m) => (
                 <div key={m.year} className="flex gap-8 items-start group">
                   {/* Year bubble */}
                   <div className="relative flex-shrink-0 w-32 text-right hidden md:block">
                     <span className="font-display font-black text-2xl text-toyo-blue">{m.year}</span>
                     {/* Dot on line */}
-                    <div className="absolute right-[-18px] top-2 w-3 h-3 rounded-full bg-toyo-blue border-2 border-toyo-black" />
+                    <div className="absolute right-[-18px] top-2 w-3 h-3 rounded-full bg-toyo-blue border-2 border-gray-50" />
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 bg-toyo-surface border border-toyo-border group-hover:border-toyo-blue/40
-                                  p-5 transition-all duration-300">
+                  <div className="flex-1 bg-white border border-gray-200 group-hover:border-toyo-blue
+                                  p-5 transition-all duration-300 hover:shadow-md">
                     <div className="md:hidden font-display font-black text-lg text-toyo-blue mb-1">{m.year}</div>
-                    <h3 className="font-display font-bold text-white text-base mb-1">{m.event}</h3>
+                    <h3 className="font-display font-bold text-gray-900 text-base mb-1">{m.event}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{m.detail}</p>
                   </div>
                 </div>
@@ -125,23 +125,23 @@ export default function NosotrosPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-toyo-dark">
+      <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <p className="label-tag justify-center">Quiénes somos</p>
-            <h2 className="section-heading text-white">Nuestros valores</h2>
+            <h2 className="section-heading">Nuestros valores</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map(({ icon: Icon, title, text }) => (
               <div
                 key={title}
-                className="group bg-toyo-surface border border-toyo-border p-6
-                           hover:border-toyo-blue transition-all duration-300 hover:-translate-y-1"
+                className="group bg-gray-50 border border-gray-200 p-6
+                           hover:border-toyo-blue hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="p-3 bg-toyo-blue/10 w-fit mb-4 group-hover:bg-toyo-blue transition-colors">
-                  <Icon size={22} className="text-toyo-blue group-hover:text-white transition-colors" />
+                <div className="p-3 bg-blue-50 w-fit mb-4 group-hover:bg-toyo-blue transition-colors duration-300">
+                  <Icon size={22} className="text-toyo-blue group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="font-display font-bold text-white text-base mb-2">{title}</h3>
+                <h3 className="font-display font-bold text-gray-900 text-base mb-2">{title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{text}</p>
               </div>
             ))}
@@ -150,22 +150,22 @@ export default function NosotrosPage() {
       </section>
 
       {/* About Toyo */}
-      <section className="py-20 bg-toyo-black">
+      <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="label-tag">La marca</p>
-              <h2 className="section-heading text-white mb-6">
+              <h2 className="section-heading mb-6">
                 ¿Por qué elegimos<br />Toyo Tires?
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
+              <p className="text-gray-500 leading-relaxed mb-6">
                 Toyo Tires es un fabricante japonés con más de 80 años de historia, reconocido mundialmente
                 por su innovación en ingeniería y diseño de neumáticos. Su compromiso con la calidad y el
                 rendimiento se alinea perfectamente con los valores de DEAR.
               </p>
               <ul className="space-y-3">
                 {toyoFacts.map((fact) => (
-                  <li key={fact} className="flex items-start gap-3 text-sm text-gray-400">
+                  <li key={fact} className="flex items-start gap-3 text-sm text-gray-500">
                     <CheckCircle size={16} className="text-toyo-blue flex-shrink-0 mt-0.5" />
                     {fact}
                   </li>
@@ -174,19 +174,19 @@ export default function NosotrosPage() {
             </div>
 
             {/* Toyo logo display */}
-            <div className="relative h-64 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-toyo-blue/5 to-transparent rounded-sm" />
+            <div className="relative h-64 bg-white border border-gray-200 flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent" />
               <Image
                 src="/images/logo_toyo.png"
                 alt="Toyo Tires"
                 width={280}
                 height={112}
-                className="h-28 w-auto object-contain brightness-0 invert opacity-20"
+                className="h-28 w-auto object-contain relative z-10 opacity-20"
               />
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 z-20"
                 style={{
-                  backgroundImage: 'radial-gradient(circle at center, rgba(0,98,176,0.15) 0%, transparent 70%)',
+                  backgroundImage: 'radial-gradient(circle at center, rgba(0,98,176,0.08) 0%, transparent 70%)',
                 }}
               />
             </div>

@@ -4,22 +4,17 @@
 
 /* ── Base ────────────────────────────────────────── */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     @apply text-gray-900 bg-white antialiased;
     -webkit-font-smoothing: antialiased;
   }
 
-  ::selection {
-    background-color: #0062B0;
-    color: #fff;
-  }
+  ::selection { background-color: #0062B0; color: #fff; }
 
   ::-webkit-scrollbar        { width: 6px; }
-  ::-webkit-scrollbar-track  { background: #0a0a0a; }
+  ::-webkit-scrollbar-track  { background: #f1f1f1; }
   ::-webkit-scrollbar-thumb  { background: #0062B0; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #0077cc; }
 }
@@ -27,20 +22,14 @@
 /* ── Component classes ───────────────────────────── */
 @layer components {
 
-  /* Containers */
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  .container-narrow {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+  .container-custom  { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .container-narrow  { @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8; }
 
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 bg-toyo-blue text-white
            font-display font-semibold tracking-wide text-sm uppercase
-           rounded-none
            transition-all duration-300
            hover:bg-toyo-blue-mid hover:shadow-blue-glow hover:-translate-y-0.5;
   }
@@ -48,7 +37,6 @@
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 border border-white text-white
            font-display font-semibold tracking-wide text-sm uppercase
-           rounded-none
            transition-all duration-300
            hover:bg-white hover:text-toyo-black hover:-translate-y-0.5;
   }
@@ -56,52 +44,44 @@
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 border border-toyo-blue text-toyo-blue
            font-display font-semibold tracking-wide text-sm uppercase
-           rounded-none
            transition-all duration-300
            hover:bg-toyo-blue hover:text-white hover:-translate-y-0.5;
   }
 
-  /* Section label */
+  /* Labels */
   .label-tag {
     @apply inline-flex items-center gap-2
-           text-toyo-blue text-xs font-display font-bold tracking-superwide uppercase
-           mb-4;
+           text-toyo-blue text-xs font-display font-bold tracking-superwide uppercase mb-4;
   }
-  .label-tag::before {
-    content: '';
-    @apply block w-6 h-px bg-toyo-blue;
-  }
+  .label-tag::before { content: ''; @apply block w-6 h-px bg-toyo-blue; }
 
-  /* Section heading */
+  /* Headings */
   .section-heading {
-    @apply font-display font-black text-4xl md:text-5xl leading-tight tracking-tight;
+    @apply font-display font-black text-4xl md:text-5xl leading-tight tracking-tight text-gray-900;
   }
 
-  /* Card */
+  /* Cards — light theme */
   .card {
-    @apply bg-white border border-gray-100
+    @apply bg-white border border-gray-200
            transition-all duration-300
-           hover:shadow-card-hover hover:-translate-y-1;
+           hover:shadow-lg hover:-translate-y-1;
   }
+  /* Cards — dark (used in hero/dark sections only) */
   .card-dark {
     @apply bg-toyo-surface border border-toyo-border
            transition-all duration-300
            hover:border-toyo-blue hover:-translate-y-1;
   }
 
-  /* Divider line */
-  .blue-line {
-    @apply block w-12 h-0.5 bg-toyo-blue mt-1 mb-6;
-  }
+  .blue-line { @apply block w-12 h-0.5 bg-toyo-blue mt-1 mb-6; }
 
-  /* Page hero — shared across inner pages */
+  /* Page hero — always dark */
   .page-hero {
     @apply relative bg-toyo-black text-white py-24 overflow-hidden;
   }
   .page-hero-bg {
     @apply absolute inset-0 opacity-20;
-    background-image:
-      linear-gradient(135deg, transparent 40%, #0062B0 100%);
+    background-image: linear-gradient(135deg, transparent 40%, #0062B0 100%);
   }
 }
 
@@ -121,16 +101,6 @@
     background-size: 48px 48px;
   }
 
-  .clip-diagonal {
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
-  }
-  .clip-diagonal-rev {
-    clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
-  }
-
-  .image-overlay::after {
-    content: '';
-    @apply absolute inset-0;
-    background: linear-gradient(to right, rgba(10,10,10,0.9) 30%, rgba(10,10,10,0.3) 70%, transparent 100%);
-  }
+  .clip-diagonal     { clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%); }
+  .clip-diagonal-rev { clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%); }
 }

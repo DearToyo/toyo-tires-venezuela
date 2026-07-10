@@ -49,7 +49,7 @@ export default function ContactoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-toyo-black">
+    <div className="min-h-screen bg-gray-50">
 
       {/* Hero */}
       <section className="page-hero">
@@ -77,26 +77,26 @@ export default function ContactoPage() {
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group flex gap-4 items-start bg-toyo-surface border border-toyo-border
-                           hover:border-toyo-blue p-6 transition-all duration-300 hover:-translate-y-0.5"
+                className="group flex gap-4 items-start bg-white border border-gray-200
+                           hover:border-toyo-blue hover:shadow-md p-6 transition-all duration-300 hover:-translate-y-0.5"
               >
-                <div className="p-2.5 bg-toyo-blue/10 group-hover:bg-toyo-blue transition-colors flex-shrink-0">
-                  <Icon size={18} className="text-toyo-blue group-hover:text-white transition-colors" />
+                <div className="p-2.5 bg-blue-50 group-hover:bg-toyo-blue transition-colors duration-300 flex-shrink-0">
+                  <Icon size={18} className="text-toyo-blue group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
-                  <p className="text-xs font-display font-bold uppercase tracking-wider text-gray-500 mb-0.5">
+                  <p className="text-xs font-display font-bold uppercase tracking-wider text-gray-400 mb-0.5">
                     {label}
                   </p>
-                  <p className="font-display font-semibold text-white text-sm">{value}</p>
-                  <p className="text-xs text-gray-600 mt-0.5">{hint}</p>
+                  <p className="font-display font-semibold text-gray-900 text-sm">{value}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{hint}</p>
                 </div>
               </a>
             ))}
 
             {/* Note */}
-            <div className="border border-toyo-border p-5 mt-4">
+            <div className="bg-white border border-gray-200 p-5 mt-4">
               <p className="text-xs text-gray-500 leading-relaxed">
-                <span className="text-white font-semibold block mb-1">DEAR C.A.</span>
+                <span className="text-gray-900 font-semibold block mb-1">DEAR C.A.</span>
                 Distribuidor Oficial Exclusivo de Toyo Tires en Venezuela desde 1967.
                 Caracas, Venezuela.
               </p>
@@ -105,16 +105,16 @@ export default function ContactoPage() {
 
           {/* Right — form */}
           <div className="lg:col-span-3">
-            <div className="bg-toyo-surface border border-toyo-border p-8">
-              <h2 className="font-display font-bold text-white text-xl mb-6">
+            <div className="bg-white border border-gray-200 shadow-sm p-8">
+              <h2 className="font-display font-bold text-gray-900 text-xl mb-6">
                 Envíanos un mensaje
               </h2>
 
               {status === 'sent' ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <CheckCircle size={48} className="text-green-400 mb-4" />
-                  <h3 className="font-display font-bold text-white text-lg mb-2">¡Mensaje enviado!</h3>
-                  <p className="text-sm text-gray-400 max-w-sm">
+                  <CheckCircle size={48} className="text-green-500 mb-4" />
+                  <h3 className="font-display font-bold text-gray-900 text-lg mb-2">¡Mensaje enviado!</h3>
+                  <p className="text-sm text-gray-500 max-w-sm">
                     Gracias por contactarnos. Te responderemos en las próximas 24–48 horas hábiles.
                   </p>
                   <button
@@ -128,7 +128,7 @@ export default function ContactoPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-400 mb-2">
+                      <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-500 mb-2">
                         Nombre *
                       </label>
                       <input
@@ -137,14 +137,14 @@ export default function ContactoPage() {
                         value={form.name}
                         onChange={(e) => set('name', e.target.value)}
                         placeholder="Tu nombre completo"
-                        className="w-full bg-toyo-black border border-toyo-border text-white
+                        className="w-full bg-white border border-gray-300 text-gray-900
                                    px-4 py-3 text-sm
                                    focus:outline-none focus:border-toyo-blue
-                                   placeholder:text-gray-700 transition"
+                                   placeholder:text-gray-300 transition"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-400 mb-2">
+                      <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-500 mb-2">
                         Teléfono
                       </label>
                       <input
@@ -152,16 +152,16 @@ export default function ContactoPage() {
                         value={form.phone}
                         onChange={(e) => set('phone', e.target.value)}
                         placeholder="0412-000 0000"
-                        className="w-full bg-toyo-black border border-toyo-border text-white
+                        className="w-full bg-white border border-gray-300 text-gray-900
                                    px-4 py-3 text-sm
                                    focus:outline-none focus:border-toyo-blue
-                                   placeholder:text-gray-700 transition"
+                                   placeholder:text-gray-300 transition"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-500 mb-2">
                       Email *
                     </label>
                     <input
@@ -170,22 +170,22 @@ export default function ContactoPage() {
                       value={form.email}
                       onChange={(e) => set('email', e.target.value)}
                       placeholder="tu@email.com"
-                      className="w-full bg-toyo-black border border-toyo-border text-white
+                      className="w-full bg-white border border-gray-300 text-gray-900
                                  px-4 py-3 text-sm
                                  focus:outline-none focus:border-toyo-blue
-                                 placeholder:text-gray-700 transition"
+                                 placeholder:text-gray-300 transition"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-500 mb-2">
                       Asunto *
                     </label>
                     <select
                       required
                       value={form.subject}
                       onChange={(e) => set('subject', e.target.value)}
-                      className="w-full bg-toyo-black border border-toyo-border text-white
+                      className="w-full bg-white border border-gray-300 text-gray-900
                                  px-4 py-3 text-sm
                                  focus:outline-none focus:border-toyo-blue transition"
                     >
@@ -195,7 +195,7 @@ export default function ContactoPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    <label className="block text-xs font-display font-bold uppercase tracking-wider text-gray-500 mb-2">
                       Mensaje *
                     </label>
                     <textarea
@@ -204,15 +204,15 @@ export default function ContactoPage() {
                       value={form.message}
                       onChange={(e) => set('message', e.target.value)}
                       placeholder="Cuéntanos en qué podemos ayudarte..."
-                      className="w-full bg-toyo-black border border-toyo-border text-white
+                      className="w-full bg-white border border-gray-300 text-gray-900
                                  px-4 py-3 text-sm resize-none
                                  focus:outline-none focus:border-toyo-blue
-                                 placeholder:text-gray-700 transition"
+                                 placeholder:text-gray-300 transition"
                     />
                   </div>
 
                   {status === 'error' && (
-                    <div className="flex items-center gap-2 text-red-400 text-sm">
+                    <div className="flex items-center gap-2 text-red-500 text-sm">
                       <AlertCircle size={16} />
                       Hubo un error al enviar. Por favor intenta de nuevo.
                     </div>
@@ -236,7 +236,7 @@ export default function ContactoPage() {
                     )}
                   </button>
 
-                  <p className="text-xs text-gray-600 text-center">
+                  <p className="text-xs text-gray-400 text-center">
                     * Campos requeridos. Tu información es confidencial.
                   </p>
                 </form>
