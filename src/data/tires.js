@@ -342,4 +342,40 @@ export function getRimSizes() {
   return Array.from(sizes).sort((a, b) => a - b)
 }
 
+/* ── Slug map (key → URL slug) ───────────────────── */
+
+export const keyToSlug = {
+  at3:     'open-country-at3',
+  mt:      'open-country-mt',
+  rt:      'open-country-rt',
+  rtTrail: 'open-country-rt-trail',
+  ht2:     'open-country-ht2',
+  sport2:  'proxes-sport-2',
+  st3:     'proxes-st3',
+  r888r:   'proxes-r888r',
+  comfort: 'proxes-comfort',
+  tm1:     'proxes-tm1',
+  vimode2: 'proxes-vi-mode-2',
+}
+
+export const slugToEntry = {
+  'open-country-at3':      { line: 'openCountry', key: 'at3' },
+  'open-country-mt':       { line: 'openCountry', key: 'mt' },
+  'open-country-rt':       { line: 'openCountry', key: 'rt' },
+  'open-country-rt-trail': { line: 'openCountry', key: 'rtTrail' },
+  'open-country-ht2':      { line: 'openCountry', key: 'ht2' },
+  'proxes-sport-2':        { line: 'proxes',      key: 'sport2' },
+  'proxes-st3':            { line: 'proxes',      key: 'st3' },
+  'proxes-r888r':          { line: 'proxes',      key: 'r888r' },
+  'proxes-comfort':        { line: 'proxes',      key: 'comfort' },
+  'proxes-tm1':            { line: 'proxes',      key: 'tm1' },
+  'proxes-vi-mode-2':      { line: 'proxes',      key: 'vimode2' },
+}
+
+export function getTireBySlug(slug) {
+  const entry = slugToEntry[slug]
+  if (!entry) return null
+  return tireDatabase[entry.line]?.[entry.key] ?? null
+}
+
 export default tireDatabase

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
-import tireDatabase from '@/data/tires'
+import { tireDatabase, keyToSlug } from '@/data/tires'
 
 const categoryMeta = {
   'off-road':    { label: 'Off-Road',        color: 'bg-red-100    text-red-700  border-red-200' },
@@ -63,7 +63,7 @@ function TireCard({ model }) {
             <span className="text-gray-900 font-bold">{model.sizes.length}</span> medidas
           </span>
           <Link
-            href={`/buscador?model=${encodeURIComponent(model.name)}`}
+            href={model.slug ? `/productos/${model.slug}` : `/buscador?model=${encodeURIComponent(model.name)}`}
             className="text-xs font-display font-bold text-toyo-blue hover:text-toyo-blue-mid
                        transition-colors flex items-center gap-1"
           >
@@ -78,8 +78,10 @@ function TireCard({ model }) {
 export default function ProductosPage() {
   const [line, setLine] = useState('all')
 
-  const openCountryModels = Object.values(tireDatabase.openCountry)
-  const proxesModels      = Object.values(tireDatabase.proxes)
+  const openCountryModels = Object.entries(tireDatabase.openCountry)
+    .map(([key, m]) => ({ ...m, slug: keyToSlug[key] }))
+  const proxesModels = Object.entries(tireDatabase.proxes)
+    .map(([key, m]) => ({ ...m, slug: keyToSlug[key] }))
 
   const tabs = [
     { id: 'all',          label: 'Todos los modelos' },
