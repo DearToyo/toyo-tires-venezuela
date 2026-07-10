@@ -162,7 +162,7 @@ export default function Home() {
                 },
                 {
                   icon: MapPin,
-                  title: 'Distribuidores',
+                  title: 'Tiendas',
                   desc:  'Encuentra el punto de venta Toyo más cercano a ti',
                   href:  '/distribuidores',
                 },
@@ -380,7 +380,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/distribuidores" className="btn-outline-white">
               <MapPin size={16} />
-              Ver Distribuidores
+              Ver Tiendas
             </Link>
             <Link href="/contacto" className="btn-outline-white">
               Contáctanos

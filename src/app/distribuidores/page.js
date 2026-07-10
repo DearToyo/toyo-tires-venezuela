@@ -167,9 +167,9 @@ export default function DistribuidoresPage() {
       <section className="page-hero">
         <div className="page-hero-bg" />
         <div className="container-custom relative z-10">
-          <p className="label-tag animate-fade-in-up">Red de distribución</p>
+          <p className="label-tag animate-fade-in-up">Red de tiendas autorizadas</p>
           <h1 className="font-display font-black text-5xl md:text-6xl text-white leading-none tracking-tight animate-fade-in-up-d1">
-            Distribuidores
+            Tiendas
           </h1>
           <p className="mt-4 text-gray-400 text-lg max-w-xl animate-fade-in-up-d2">
             {dealers.length} puntos de venta autorizados en todo el territorio venezolano.
@@ -228,7 +228,7 @@ export default function DistribuidoresPage() {
           <div className="bg-toyo-surface border border-toyo-border p-12 text-center mb-16">
             <MapPin size={36} className="mx-auto mb-4 text-gray-700" />
             <p className="text-gray-400 font-display font-semibold">
-              No hay distribuidores para ese filtro
+              No hay tiendas para ese filtro
             </p>
           </div>
         )}

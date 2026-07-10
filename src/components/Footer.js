@@ -12,7 +12,7 @@ const productLinks = [
 
 const siteLinks = [
   { label: 'Buscador de Llantas',  href: '/buscador' },
-  { label: 'Distribuidores',       href: '/distribuidores' },
+  { label: 'Tiendas',              href: '/distribuidores' },
   { label: 'Embajadores',          href: '/embajadores' },
   { label: 'Nosotros',             href: '/nosotros' },
   { label: 'Contacto',             href: '/contacto' },

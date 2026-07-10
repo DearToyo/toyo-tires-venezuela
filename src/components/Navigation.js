@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/productos',     label: 'Productos' },
   { href: '/buscador',      label: 'Buscador' },
   { href: '/embajadores',   label: 'Embajadores' },
-  { href: '/distribuidores',label: 'Distribuidores' },
+  { href: '/distribuidores',label: 'Tiendas' },
   { href: '/nosotros',      label: 'Nosotros' },
   { href: '/contacto',      label: 'Contacto' },
 ]
@@ -70,7 +70,7 @@ export default function Navigation() {
 
         {/* Main nav */}
         <div className="container-custom">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-28">
 
             {/* Logo — transparent SVG: white on dark hero, blue on white nav */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
@@ -78,7 +78,7 @@ export default function Navigation() {
               <img
                 src="/images/logo_toyo_clean.png"
                 alt="Toyo Tires"
-                className="h-9 w-auto object-contain transition-all duration-500"
+                className="h-14 w-auto object-contain transition-all duration-500"
                 style={{
                   filter: (scrolled || !isHome)
                     ? 'none'
@@ -96,7 +96,7 @@ export default function Navigation() {
                     key={link.href}
                     href={link.href}
                     className={`
-                      relative px-4 py-2 text-sm font-display font-semibold tracking-wide
+                      relative px-4 py-2 text-base font-display font-bold tracking-wide
                       transition-colors duration-200
                       ${textColor}
                       group
@@ -178,7 +178,7 @@ export default function Navigation() {
       </nav>
 
       {/* Spacer for non-home pages */}
-      {!isHome && <div className="h-20" />}
+      {!isHome && <div className="h-28" />}
     </>
   )
 }
