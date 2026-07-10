@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { MapPin, ArrowLeft, ChevronRight } from 'lucide-react'
 import { tireDatabase, slugToEntry } from '@/data/tires'
 import { tireDetails } from '@/data/tireDetails'
+import SizesAccordion from '@/components/SizesAccordion'
 
 function groupSizesByRim(sizes) {
   const groups = {}
@@ -243,40 +244,7 @@ export default function TireProductPage({ params }) {
           </p>
 
           {rimGroups.length > 0 ? (
-            <div className="space-y-6">
-              {rimGroups.map(({ rim, items }) => (
-                <div key={rim} className="overflow-hidden border border-gray-200 shadow-sm">
-
-                  {/* Rim header */}
-                  <div className="bg-toyo-blue px-6 py-3.5 flex items-center justify-between">
-                    <span className="font-display font-black text-white text-sm tracking-widest uppercase">
-                      RIN {rim}&quot;
-                    </span>
-                    <span className="text-white/70 text-xs font-display font-semibold">
-                      {items.length} {items.length === 1 ? 'medida' : 'medidas'}
-                    </span>
-                  </div>
-
-                  {/* Table header */}
-                  <div className="grid grid-cols-2 bg-gray-100 border-b border-gray-200 px-6 py-2.5">
-                    <span className="text-xs font-display font-bold text-gray-500 uppercase tracking-wide">Medida</span>
-                    <span className="text-xs font-display font-bold text-gray-500 uppercase tracking-wide">Índice Carga / Velocidad</span>
-                  </div>
-
-                  {/* Rows */}
-                  {items.map(({ medida, carga }, idx) => (
-                    <div
-                      key={idx}
-                      className={`grid grid-cols-2 px-6 py-3 border-b border-gray-100 last:border-0
-                        ${idx % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}
-                    >
-                      <span className="text-sm font-display font-semibold text-gray-900">{medida}</span>
-                      <span className="text-sm text-gray-600">{carga}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+            <SizesAccordion rimGroups={rimGroups} totalSizes={tire.sizes.length} />
           ) : (
             <div className="bg-white border border-gray-200 p-12 text-center">
               <p className="text-gray-400 text-sm font-display mb-6">

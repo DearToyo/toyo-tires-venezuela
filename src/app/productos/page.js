@@ -41,7 +41,14 @@ function TireCard({ model }) {
 
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="font-display font-bold text-gray-900 text-base leading-tight">{model.name}</h3>
+          <div className="flex flex-col leading-none">
+            <span className="text-[10px] font-display font-bold tracking-superwide uppercase text-gray-400 mb-0.5">
+              {model.line}
+            </span>
+            <span className="font-display font-black text-gray-900 text-lg leading-tight tracking-tight">
+              {model.name.replace(model.line + ' ', '')}
+            </span>
+          </div>
           <span className={`text-xs px-2 py-0.5 border flex-shrink-0 ${meta.color} font-display font-semibold`}>
             {meta.label}
           </span>
@@ -67,7 +74,7 @@ function TireCard({ model }) {
             className="text-xs font-display font-bold text-toyo-blue hover:text-toyo-blue-mid
                        transition-colors flex items-center gap-1"
           >
-            Ver medidas <ArrowRight size={12} />
+            Ver detalles <ArrowRight size={12} />
           </Link>
         </div>
       </div>
