@@ -38,7 +38,7 @@
            px-7 py-3.5 border border-white text-white
            font-display font-semibold tracking-wide text-sm uppercase
            transition-all duration-300
-           hover:bg-white hover:text-toyo-black hover:-translate-y-0.5;
+           hover:bg-white hover:text-toyo-blue hover:-translate-y-0.5;
   }
   .btn-outline-blue {
     @apply inline-flex items-center justify-center gap-2
@@ -68,27 +68,27 @@
   }
   /* Cards — dark (used in hero/dark sections only) */
   .card-dark {
-    @apply bg-toyo-surface border border-toyo-border
+    @apply bg-white border border-white/20
            transition-all duration-300
-           hover:border-toyo-blue hover:-translate-y-1;
+           hover:border-white hover:-translate-y-1;
   }
 
   .blue-line { @apply block w-12 h-0.5 bg-toyo-blue mt-1 mb-6; }
 
-  /* Page hero — always dark */
+  /* Page hero — always blue */
   .page-hero {
-    @apply relative bg-toyo-black text-white py-24 overflow-hidden;
+    @apply relative bg-toyo-blue text-white py-24 overflow-hidden;
   }
   .page-hero-bg {
-    @apply absolute inset-0 opacity-20;
-    background-image: linear-gradient(135deg, transparent 40%, #0062B0 100%);
+    @apply absolute inset-0;
+    background-image: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.08) 100%);
   }
 }
 
 /* ── Utilities ───────────────────────────────────── */
 @layer utilities {
   .text-gradient-blue {
-    background: linear-gradient(135deg, #3a9de8 0%, #0062B0 100%);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.75) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -96,11 +96,15 @@
 
   .bg-grid-pattern {
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .clip-diagonal     { clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%); }
   .clip-diagonal-rev { clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%); }
 }
+
+/* ── Override label-tag inside blue hero sections ── */
+.page-hero .label-tag { color: rgba(255, 255, 255, 0.75); }
+.page-hero .label-tag::before { background-color: rgba(255, 255, 255, 0.75); }

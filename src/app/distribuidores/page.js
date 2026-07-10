@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const DistribuidoresMap = dynamic(
   () => import('@/components/DistribuidoresMap'),
-  { ssr: false, loading: () => <div className="w-full h-full bg-toyo-dark flex items-center justify-center"><span className="text-gray-500 text-sm">Cargando mapa...</span></div> }
+  { ssr: false, loading: () => <div className="w-full h-full bg-gray-100 flex items-center justify-center"><span className="text-gray-400 text-sm">Cargando mapa...</span></div> }
 )
 
 /* ── City base coordinates ─────────────────────────────── */
@@ -88,7 +88,7 @@ const rawDealers = [
   { name: 'CAR\'S BOUTIQUE C.A.',                       city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Carlos Sanda, Edif. Capriso, PB, Local R, Urb. El Viñedo' },
   { name: 'CORPORACION RIMO CAUCHOS C.A.',              city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Sesquicentenario, Local N° 92-201, Sector Antonio José de Sucre' },
   { name: 'TOYOVAL C.A',                                city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Bolívar Norte, Local N° 108-118, Sector San José' },
-  { name: 'TIRE GOLD ONE, C.A',                         city: 'TOCUYITO',       state: 'Carabobo',         direccion: 'Av. La Cruz cruce con Vía de Servicio, Casa Lote N° 2, Urb. Pocaterra, Tocuyito' },
+  { name: 'TIRE GOLD ONE, C.A',                        city: 'TOCUYITO',       state: 'Carabobo',         direccion: 'Av. La Cruz cruce con Vía de Servicio, Casa Lote N° 2, Urb. Pocaterra, Tocuyito' },
   { name: 'NEUMATICO EXPRESS C.A.',                     city: 'SAN DIEGO',      state: 'Carabobo',         direccion: 'Av. 73, Carretera Vía San Diego N° 300, Local Complejos de Oficina N° 11, Urb. Industrial San Diego' },
   { name: 'TALLER HIGH PERFORMANCE 4X4, C.A',           city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Calle Colombia cruce con Av. Paseo Cabriales, Galpón N° 92-42, Sector San Blas' },
   { name: 'AUTO BOOM SERVICES, C.A',                    city: 'NAGUANAGUA',     state: 'Carabobo',         direccion: 'Calle Naguanagua N° Cívico 184-69, Local N/I, Sector N/I' },
@@ -119,14 +119,14 @@ function DealerCard({ dealer, highlighted, cardRef }) {
   return (
     <div
       ref={cardRef}
-      className={`group bg-toyo-surface border transition-all duration-300 p-5
-        ${highlighted ? 'border-toyo-blue shadow-blue-glow' : 'border-toyo-border hover:border-toyo-blue hover:-translate-y-0.5 hover:shadow-dark-card'}`}
+      className={`group bg-white border transition-all duration-300 p-5
+        ${highlighted ? 'border-toyo-blue shadow-md' : 'border-gray-200 hover:border-toyo-blue hover:-translate-y-0.5 hover:shadow-md'}`}
     >
       <div className="h-0.5 w-8 bg-toyo-blue mb-4 group-hover:w-full transition-all duration-500" />
       <p className="text-xs font-display font-bold text-toyo-blue uppercase tracking-wider mb-1">
         {dealer.state}
       </p>
-      <h3 className="font-display font-bold text-white text-sm leading-tight mb-2">
+      <h3 className="font-display font-bold text-gray-900 text-sm leading-tight mb-2">
         {dealer.name}
       </h3>
       <p className="text-xs text-gray-500 flex items-start gap-1.5">
@@ -161,7 +161,7 @@ export default function DistribuidoresPage() {
   }
 
   return (
-    <div className="min-h-screen bg-toyo-black">
+    <div className="min-h-screen bg-gray-50">
 
       {/* Hero */}
       <section className="page-hero">
@@ -171,7 +171,7 @@ export default function DistribuidoresPage() {
           <h1 className="font-display font-black text-5xl md:text-6xl text-white leading-none tracking-tight animate-fade-in-up-d1">
             Tiendas
           </h1>
-          <p className="mt-4 text-gray-400 text-lg max-w-xl animate-fade-in-up-d2">
+          <p className="mt-4 text-white/80 text-lg max-w-xl animate-fade-in-up-d2">
             {dealers.length} puntos de venta autorizados en todo el territorio venezolano.
           </p>
         </div>
@@ -180,20 +180,20 @@ export default function DistribuidoresPage() {
       <div className="container-custom py-16">
 
         {/* Map */}
-        <div className="mb-12 border border-toyo-border overflow-hidden" style={{ height: 420 }}>
+        <div className="mb-12 border border-gray-200 overflow-hidden shadow-sm" style={{ height: 420 }}>
           <DistribuidoresMap dealers={dealers} onSelect={handleMarkerClick} />
         </div>
 
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="relative flex-1">
-            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
+            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
             <input
               type="text"
               placeholder="Buscar por nombre, ciudad o estado..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-toyo-surface border border-toyo-border text-white
+              className="w-full bg-white border border-gray-300 text-gray-900
                          pl-10 pr-4 py-2.5 text-sm
                          focus:outline-none focus:border-toyo-blue transition"
             />
@@ -201,14 +201,14 @@ export default function DistribuidoresPage() {
           <select
             value={stateFilter}
             onChange={(e) => setStateFilter(e.target.value)}
-            className="bg-toyo-surface border border-toyo-border text-gray-300
+            className="bg-white border border-gray-300 text-gray-700
                        px-4 py-2.5 text-sm focus:outline-none focus:border-toyo-blue transition min-w-44"
           >
             {ALL_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
 
-        <p className="text-xs text-gray-600 mb-6 font-display font-semibold">
+        <p className="text-xs text-gray-500 mb-6 font-display font-semibold">
           {filtered.length} distribuidor{filtered.length !== 1 ? 'es' : ''} encontrado{filtered.length !== 1 ? 's' : ''}
         </p>
 
@@ -225,21 +225,21 @@ export default function DistribuidoresPage() {
             ))}
           </div>
         ) : (
-          <div className="bg-toyo-surface border border-toyo-border p-12 text-center mb-16">
-            <MapPin size={36} className="mx-auto mb-4 text-gray-700" />
-            <p className="text-gray-400 font-display font-semibold">
+          <div className="bg-white border border-gray-200 p-12 text-center mb-16">
+            <MapPin size={36} className="mx-auto mb-4 text-gray-300" />
+            <p className="text-gray-500 font-display font-semibold">
               No hay tiendas para ese filtro
             </p>
           </div>
         )}
 
         {/* CTA */}
-        <div className="border border-toyo-border bg-toyo-surface p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="border border-gray-200 bg-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="font-display font-bold text-white text-lg mb-1">
+            <h3 className="font-display font-bold text-gray-900 text-lg mb-1">
               ¿No encuentras un distribuidor cerca?
             </h3>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-500">
               Contáctanos directamente y te orientamos sobre la opción más conveniente para ti.
             </p>
           </div>

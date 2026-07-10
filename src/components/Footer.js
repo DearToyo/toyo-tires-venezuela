@@ -20,10 +20,10 @@ const siteLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-toyo-black text-white">
+    <footer className="bg-toyo-blue text-white">
 
       {/* Main footer body */}
-      <div className="border-t border-toyo-border">
+      <div className="border-t border-white/20">
         <div className="container-custom py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -36,19 +36,20 @@ export default function Footer() {
                 className="h-10 w-auto mb-6"
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
-              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+              <p className="text-sm text-white/75 leading-relaxed mb-6">
                 Neumáticos de ingeniería japonesa, distribuidos con orgullo en Venezuela desde 1967.
               </p>
               <div className="mb-6">
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">
+                <p className="text-xs text-white/50 uppercase tracking-wider mb-3">
                   Distribuidor oficial
                 </p>
-                <div className="inline-block bg-white/10 px-3 py-2">
+                <div className="inline-block bg-white/15 px-3 py-2">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/logo_dear.png"
                     alt="DEAR C.A."
                     className="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                    style={{ filter: 'brightness(0) invert(1)' }}
                   />
                 </div>
               </div>
@@ -56,9 +57,9 @@ export default function Footer() {
                 href="https://instagram.com/toyotiresvzla"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition group"
+                className="inline-flex items-center gap-2 text-sm text-white/75 hover:text-white transition group"
               >
-                <span className="p-2 border border-toyo-border group-hover:border-toyo-blue rounded-full transition">
+                <span className="p-2 border border-white/30 group-hover:border-white rounded-full transition">
                   <Instagram size={16} />
                 </span>
                 @toyotiresvzla
@@ -67,7 +68,7 @@ export default function Footer() {
 
             {/* Products */}
             <div>
-              <h4 className="text-xs font-display font-bold tracking-superwide uppercase text-gray-500 mb-5">
+              <h4 className="text-xs font-display font-bold tracking-superwide uppercase text-white/50 mb-5">
                 Productos
               </h4>
               <ul className="space-y-3">
@@ -75,7 +76,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition flex items-center gap-1.5 group"
+                      className="text-sm text-white/75 hover:text-white transition flex items-center gap-1.5 group"
                     >
                       <ArrowRight
                         size={12}
@@ -90,7 +91,7 @@ export default function Footer() {
 
             {/* Site */}
             <div>
-              <h4 className="text-xs font-display font-bold tracking-superwide uppercase text-gray-500 mb-5">
+              <h4 className="text-xs font-display font-bold tracking-superwide uppercase text-white/50 mb-5">
                 Navegación
               </h4>
               <ul className="space-y-3">
@@ -98,7 +99,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition flex items-center gap-1.5 group"
+                      className="text-sm text-white/75 hover:text-white transition flex items-center gap-1.5 group"
                     >
                       <ArrowRight
                         size={12}
@@ -113,38 +114,38 @@ export default function Footer() {
 
             {/* Contact */}
             <div>
-              <h4 className="text-xs font-display font-bold tracking-superwide uppercase text-gray-500 mb-5">
+              <h4 className="text-xs font-display font-bold tracking-superwide uppercase text-white/50 mb-5">
                 Contacto
               </h4>
               <ul className="space-y-4">
                 <li>
                   <a
                     href="tel:02127513466"
-                    className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition group"
+                    className="flex items-start gap-3 text-sm text-white/75 hover:text-white transition"
                   >
-                    <Phone size={16} className="mt-0.5 flex-shrink-0 text-toyo-blue" />
+                    <Phone size={16} className="mt-0.5 flex-shrink-0 text-white" />
                     <span>0212-751 3466</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="mailto:info@dear.com.ve"
-                    className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition"
+                    className="flex items-start gap-3 text-sm text-white/75 hover:text-white transition"
                   >
-                    <Mail size={16} className="mt-0.5 flex-shrink-0 text-toyo-blue" />
+                    <Mail size={16} className="mt-0.5 flex-shrink-0 text-white" />
                     <span>info@dear.com.ve</span>
                   </a>
                 </li>
                 <li>
-                  <span className="flex items-start gap-3 text-sm text-gray-400">
-                    <MapPin size={16} className="mt-0.5 flex-shrink-0 text-toyo-blue" />
+                  <span className="flex items-start gap-3 text-sm text-white/75">
+                    <MapPin size={16} className="mt-0.5 flex-shrink-0 text-white" />
                     <span>Caracas, Venezuela</span>
                   </span>
                 </li>
               </ul>
 
               <div className="mt-8">
-                <Link href="/contacto" className="btn-outline-blue text-xs !px-5 !py-2.5">
+                <Link href="/contacto" className="btn-outline-white text-xs !px-5 !py-2.5">
                   Contáctanos
                 </Link>
               </div>
@@ -154,12 +155,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-toyo-border">
-        <div className="container-custom py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-600">
+      <div className="border-t border-white/20">
+        <div className="container-custom py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/50">
           <p>
             &copy; {new Date().getFullYear()} DEAR C.A. — Distribuidor Oficial Toyo Tires Venezuela.
           </p>
-          <p className="text-gray-700">
+          <p>
             Todos los derechos reservados.
           </p>
         </div>
