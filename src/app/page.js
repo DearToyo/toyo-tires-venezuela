@@ -57,64 +57,36 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative bg-toyo-blue overflow-hidden flex items-center" style={{ minHeight: '88vh' }}>
-
-        {/* Background tire image (faint) */}
-        <div className="absolute right-[-5%] top-0 bottom-0 w-[55%] pointer-events-none">
-          <Image
-            src="/images/productos/open-country-rt-trail/OPRT_Trail_35x12_50R17_Right.png"
-            alt=""
-            fill
-            className="object-contain object-right opacity-10"
-            priority
-          />
-        </div>
-
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, rgba(0,98,176,1) 30%, rgba(0,98,176,0.7) 70%, rgba(0,98,176,0.3) 100%)' }}
-        />
-        <div className="absolute inset-0 pointer-events-none bg-grid-pattern" />
-
-        {/* Content */}
-        <div className="relative container-custom pt-12 pb-24 z-10">
+      <section className="bg-white flex items-center border-b border-gray-100" style={{ minHeight: '88vh' }}>
+        <div className="container-custom py-24">
           <div className="max-w-2xl">
 
-            <p className="inline-flex items-center gap-2 text-white/70 text-xs font-display font-bold tracking-superwide uppercase mb-6 animate-fade-in-up">
-              <span className="block w-6 h-px bg-white/70" />
+            <p className="label-tag animate-fade-in-up">
               Distribuidor Oficial · Venezuela
             </p>
 
-            <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-white leading-none tracking-tight mb-6 animate-fade-in-up-d1">
+            <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-toyo-blue leading-none tracking-tight mb-6 animate-fade-in-up-d1">
               Llantas que<br />
-              <span className="text-white/90">van más lejos.</span>
+              van más lejos.
             </h1>
 
-            <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-lg animate-fade-in-up-d2">
+            <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-lg animate-fade-in-up-d2">
               Toyo Tires Venezuela — calidad japonesa de primer nivel, distribuida
               por DEAR&nbsp;C.A. desde 1967. Para tu camioneta, SUV o auto deportivo.
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-in-up-d3">
-              <Link
-                href="/productos"
-                className="inline-flex items-center gap-2 bg-white text-toyo-blue px-7 py-3.5
-                           font-display font-bold text-sm uppercase tracking-wide
-                           transition-all duration-300 hover:bg-gray-100 hover:-translate-y-0.5"
-              >
+              <Link href="/productos" className="btn-primary">
                 Ver Productos
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/buscador" className="btn-outline-white">
+              <Link href="/buscador" className="btn-outline-blue">
                 <Search size={16} />
                 Buscar por Medida
               </Link>
             </div>
           </div>
         </div>
-
-        {/* Bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none" />
       </section>
 
       {/* ── STATS STRIP ──────────────────────────────────── */}
