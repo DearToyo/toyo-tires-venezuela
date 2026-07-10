@@ -60,7 +60,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: '', // Pega aquí tu código de Google Search Console cuando lo tengas
+    google: 'BZOONLEPbNVCucGtDI5h_fl0ZL2bRAfF_Jq_JTTHS7w',
   },
 }
 
