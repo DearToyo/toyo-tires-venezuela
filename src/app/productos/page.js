@@ -13,14 +13,32 @@ const categoryMeta = {
   'competition': { label: 'Competición',     color: 'bg-purple-100 text-purple-700 border-purple-200' },
 }
 
+function ModelLogo({ line, name }) {
+  const variant = name.replace(line + ' ', '')
+  return (
+    <div className="flex flex-col leading-none">
+      <span className="text-[9px] font-display font-bold tracking-[0.18em] uppercase text-gray-400">
+        {line}
+      </span>
+      <div className="h-[2px] w-10 bg-toyo-blue my-1.5" />
+      <span className="font-display font-black text-[22px] text-gray-900 leading-none tracking-tight">
+        {variant}
+      </span>
+    </div>
+  )
+}
+
 function TireCard({ model }) {
   const meta = categoryMeta[model.category] || { label: model.category, color: 'bg-gray-100 text-gray-700 border-gray-200' }
+  const href = model.slug ? `/productos/${model.slug}` : `/buscador?model=${encodeURIComponent(model.name)}`
 
   return (
-    <div className="group bg-white border border-gray-200
-                    hover:border-toyo-blue hover:shadow-lg transition-all duration-300
-                    flex flex-col overflow-hidden hover:-translate-y-1">
-
+    <Link
+      href={href}
+      className="group bg-white border border-gray-200
+                 hover:border-toyo-blue hover:shadow-lg transition-all duration-300
+                 flex flex-col overflow-hidden hover:-translate-y-1"
+    >
       <div className="relative h-52 bg-white flex items-center justify-center overflow-hidden border-b border-gray-100">
         {model.image ? (
           <Image
@@ -41,14 +59,7 @@ function TireCard({ model }) {
 
       <div className="p-6 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <div className="flex flex-col leading-none">
-            <span className="text-[10px] font-display font-bold tracking-superwide uppercase text-gray-400 mb-0.5">
-              {model.line}
-            </span>
-            <span className="font-display font-black text-gray-900 text-lg leading-tight tracking-tight">
-              {model.name.replace(model.line + ' ', '')}
-            </span>
-          </div>
+          <ModelLogo line={model.line} name={model.name} />
           <span className={`text-xs px-2 py-0.5 border flex-shrink-0 ${meta.color} font-display font-semibold`}>
             {meta.label}
           </span>
@@ -69,16 +80,13 @@ function TireCard({ model }) {
           <span className="text-xs text-gray-400">
             <span className="text-gray-900 font-bold">{model.sizes.length}</span> medidas
           </span>
-          <Link
-            href={model.slug ? `/productos/${model.slug}` : `/buscador?model=${encodeURIComponent(model.name)}`}
-            className="text-xs font-display font-bold text-toyo-blue hover:text-toyo-blue-mid
-                       transition-colors flex items-center gap-1"
-          >
+          <span className="text-xs font-display font-bold text-toyo-blue flex items-center gap-1
+                           group-hover:gap-2 transition-all duration-200">
             Ver detalles <ArrowRight size={12} />
-          </Link>
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
