@@ -11,26 +11,30 @@ const DistribuidoresMap = dynamic(
 
 /* ── City base coordinates ─────────────────────────────── */
 const CITY_COORDS = {
-  'CARACAS':        [10.4806, -66.9036],
-  'SAN ANTONIO':    [10.3742, -67.0306],
-  'GUANTA':         [10.2333, -64.5833],
-  'PTO LA CRUZ':    [10.1422, -64.6872],
-  'MATURIN':        [9.7456,  -63.1864],
-  'PTO ORDAZ':      [8.2949,  -62.7282],
-  'SAN FELIX':      [8.3739,  -62.6636],
-  'MARACAY':        [10.2389, -67.5938],
-  'TURMERO':        [10.2294, -67.4769],
-  'PALO NEGRO':     [10.1736, -67.5372],
-  'VALLE LA PASCUA':[9.2228,  -66.0006],
-  'CALABOZO':       [8.9246,  -67.4297],
-  'VALENCIA':       [10.1765, -67.9763],
-  'TOCUYITO':       [10.1667, -68.0667],
-  'SAN DIEGO':      [10.2500, -67.9167],
-  'NAGUANAGUA':     [10.2500, -68.0000],
-  'SAN FRANCISCO':  [10.6068, -71.6411],
-  'BARQUISIMETO':   [10.0678, -69.3467],
-  'ACARIGUA':       [9.5600,  -69.2000],
-  'GUANARE':        [9.0422,  -69.7453],
+  'CARACAS':                  [10.4806,  -66.9036],
+  'SAN ANTONIO DE LOS ALTOS': [10.3742,  -67.0306],
+  'CAUCAGUITA':               [10.4833,  -66.7167],
+  'LOS TEQUES':               [10.3439,  -67.0408],
+  'VALENCIA':                 [10.1765,  -67.9763],
+  'NAGUANAGUA':               [10.2500,  -68.0000],
+  'MARACAIBO':                [10.6306,  -71.6406],
+  'BARQUISIMETO':             [10.0678,  -69.3467],
+  'CARORA':                   [10.1667,  -70.0833],
+  'ACARIGUA':                 [ 9.5600,  -69.2000],
+  'BARINAS':                  [ 8.6235,  -70.2072],
+  'MARACAY':                  [10.2389,  -67.5938],
+  'TURMERO':                  [10.2294,  -67.4769],
+  'SAN CRISTOBAL':            [ 7.7664,  -72.2253],
+  'CORO':                     [11.3989,  -69.6722],
+  'VALERA':                   [ 9.3167,  -70.6000],
+  'CUMANA':                   [10.4503,  -64.1833],
+  'BARCELONA':                [10.1308,  -64.6933],
+  'PUERTO LA CRUZ':           [10.2119,  -64.6386],
+  'SAN FELIX':                [ 8.3739,  -62.6636],
+  'CIUDAD GUAYANA':           [ 8.3539,  -62.6558],
+  'PUERTO ORDAZ':             [ 8.2949,  -62.7282],
+  'CIUDAD BOLIVAR':           [ 8.1217,  -63.5497],
+  'UPATA':                    [ 8.0142,  -62.3932],
 }
 
 function coords(city, index) {
@@ -39,72 +43,106 @@ function coords(city, index) {
   return [base[0] + offset(index * 3), base[1] + offset(index * 5 + 1)]
 }
 
-/* ── Raw dealer data from Excel ────────────────────────── */
+/* ── Dealer data from Excel ────────────────────────────── */
 const rawDealers = [
-  { name: 'SERVIEXPRESS PASEO LA CASTELLANA 19, CA',    city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle José Félix Ribas con Av. Ppal. La Castellana, Local 10, Urb. La Castellana' },
-  { name: 'CAUCHOS Y ACCESORIOS JRC C.A.',              city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Las Palmas entre 3era y 4ta Transversal, Boleíta Sur' },
-  { name: 'CAUCHOS LOS TAVARES C.A',                    city: 'CARACAS',        state: 'Distrito Capital', direccion: '1era Transv. c/c La Línea, Los Dos Caminos' },
-  { name: 'AUTOSERVICIOS Y CAUCHOS AVILA, CA',          city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Libertador esq. Calle José Félix Sosa, Local 10-11, Urb. Bello Campo' },
-  { name: 'AUTOSERVICIOS JA KETER 222, CA',             city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle Veracruz esq. c/c La Guairita, Local Tamanco Express, Urb. Las Mercedes' },
-  { name: 'CORPORACION EXIAUTO CA',                     city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Principal de Los Ruices, Edif. Exiauto, Local Exiauto Toyota, Urb. Los Ruices' },
-  { name: 'INVERSIONES HFJ 4X4 RUSTICARS, CA',          city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle Primera c/c Transversal Izquierda, Edif. Yanucci, Local LCPB-A, Urb. Boleíta' },
-  { name: 'RUEDAS LA CARLOTA C.A.',                     city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle Guanchez entre Fco. de Miranda y Rómulo Gallegos' },
-  { name: 'TIRE CENTER LA CASTELLANA II C.A.',          city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Principal La Castellana con José Ángel Lamas, Edif. Tire Center La Castellana' },
-  { name: 'NOMAD 4WD CA',                               city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle San Ignacio de Loyola, Qta. Italmueble, Piso 1, Urb. Chacao' },
-  { name: 'CORPORACION ROCO 4WD PERFORMANCE, CA',       city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Libertador c/Calle El Muñeco, Local 27, Urb. Chacao' },
-  { name: 'TRUCK STORE CA',                             city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Principal de La Guairita, Local Galpón, Urb. El Hatillo' },
-  { name: 'CORPORACION NEUMATICOS TOP 3000, CA',        city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Rómulo Gallegos, Casa S/N, Urb. Sebucán' },
-  { name: 'TALLER VAG PERFORMANCE, CA',                 city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Principal, Galpón Industrial G-44, Boleíta Sur, entre 3era y 4ta Transversal' },
-  { name: 'TOÑO TIRES GARAGE, CA',                      city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Victoria con Gran Colombia, Local 108, Urb. Las Acacias' },
-  { name: 'TALLERES LEO 245, CA',                       city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. El Cuartel Urdaneta, Est. Servicio Brasil, Urb. Nueva Caracas' },
-  { name: 'CAUCHOS ACCESORIOS TOÑO WHEELS 028 CA',      city: 'SAN ANTONIO',    state: 'Miranda',          direccion: 'Ctra. Panamericana Km 13, CC Capo di Monte, Nivel PB, Local PB1 y PB2, San Antonio de los Altos' },
-  { name: 'ROYAL AUTORAMA C.A.',                        city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Avda. Tamanaco N° 9, El Rosal' },
-  { name: 'RADIAL SUPER GOMA. C.A.',                    city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Simón Planas, Qta. Guaricavila, Santa Mónica' },
-  { name: 'MULTISERVICIOS TODO 4X4 CA',                 city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. América, Edif. Jardín América II, Piso 1, Apt 11, Urb. Las Acacias' },
-  { name: 'MULTISERVICIOS CICLON LOS CHAGUARAMOS C.A.', city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle Bellas Artes entre Av. Ciencias y El Estadium, Qta. Susana' },
-  { name: 'SPEED RACING C.A.',                          city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. El Estadium entre Calle Sanz y Risquez, Los Chaguaramos' },
-  { name: 'INVERSIONES SARAY CRJ C.A.',                 city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle Stadium con Alma Mater, Qta. Santa Eduvigis, Los Chaguaramos' },
-  { name: 'RACING RUEDAS 99 C.A',                       city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Av. Sucre, Galpón N° 38, Local D, Los Dos Caminos' },
-  { name: 'CAUCHOS Y ACCESORIOS LEMANS, CA',            city: 'CARACAS',        state: 'Distrito Capital', direccion: 'Calle Don Bosco, Edif. Lepanto, PB, Local 3, Urb. Colinas de Bello Monte' },
-  { name: 'D´TAPICO OILCA',                             city: 'GUANTA',         state: 'Anzoátegui',       direccion: 'Calle Principal, Casa Las Palmas N° 10, Sector Las Palmas, Guanta' },
-  { name: 'AUTO ACCESORIOS 1000 MILLAS  S.A.',          city: 'PTO LA CRUZ',    state: 'Anzoátegui',       direccion: 'Av. Bolívar, Local N° 311, Urb. Bella Vista, Puerto La Cruz' },
-  { name: 'SUPERCAUCHOS LIBERTADOR S.A.',                city: 'MATURIN',        state: 'Monagas',          direccion: 'Av. Libertador cruce con Bicentario, Final Av. Vargas, Maturín' },
-  { name: 'CAUCHOS PORRUA C.A.',                        city: 'PTO ORDAZ',      state: 'Bolívar',          direccion: 'Calle Oriente S/N, Sector Castillito, Pto. Ordaz' },
-  { name: 'MULTICAUCHOS LA UNIDAD C.A.',                city: 'SAN FELIX',      state: 'Bolívar',          direccion: 'Av. Manuel Piar, Sector La Unidad, Fte. Plaza Las Batallas, San Félix' },
-  { name: 'EUROCAUCHOS MILENIUM C.A.',                  city: 'MARACAY',        state: 'Aragua',           direccion: 'Av. Intercomunal Santiago Mariño con Calle Las Industrias, Maracay' },
-  { name: 'AUTO SPORT, S.A',                            city: 'TURMERO',        state: 'Aragua',           direccion: 'Calle Atanacio, Casa N° 13, Urb. Sorocaima II, Turmero' },
-  { name: 'AVIADORES CARS CENTER, C.A',                 city: 'PALO NEGRO',     state: 'Aragua',           direccion: 'Av. Autopista Los Aviadores, CC Parque Los Aviadores, Nivel Estacionamiento' },
-  { name: 'GRUPO LA RUEDA C.A',                         city: 'TURMERO',        state: 'Aragua',           direccion: 'Av. Intercomunal Santiago Mariño, Parcela S/N, Sector La Julia, Turmero' },
-  { name: 'CAUCHOS CAMPO ELIAS C.A.',                   city: 'MARACAY',        state: 'Aragua',           direccion: 'Calle Campo Elias, Casa Galpón N° 13, Sector La Romana, Maracay' },
-  { name: 'CAUCHOS UNIVERSAL D.C.S. C.A.',              city: 'MARACAY',        state: 'Aragua',           direccion: 'Av. Los Cedros con Calle El Canal, Edif. Rosa María, PB, Maracay' },
-  { name: 'G.P TIRES LA ENCRUCIJADA, C.A',             city: 'TURMERO',        state: 'Aragua',           direccion: 'Av. Intercomunal Santiago Mariño, Local Fundo La Purica N° A32, La Encrucijada, Turmero' },
-  { name: 'G & D CAR´S SHOP, C.A',                     city: 'TURMERO',        state: 'Aragua',           direccion: 'Turmero, Aragua' },
-  { name: 'AUTO K, C.A',                                city: 'VALLE LA PASCUA', state: 'Guárico',         direccion: 'Calle Real, Salida a Tucupido, Edif. Auto K, PB, Local 132, Sector Morichal' },
-  { name: 'SERVICAUCHOS ELOY C.A.',                     city: 'CALABOZO',       state: 'Guárico',          direccion: 'Cr. 14 al Final, Casa S/N, Sector Zona Comercial, Calabozo' },
-  { name: 'LLANTAS J.M. 2018,C.A',                      city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Calle 91, Michelena N° Cívico 86-19, Local S/N, Urb. La Michelena' },
-  { name: 'PROTIRES LOS COLEGIOS, C.A',                 city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. 101, Casa Parcela N° 11, Urb. Guaparo, Manzana 14, N° 155-91' },
-  { name: 'EXPOTIRES, C.A',                             city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Calle 123, Local 103-18, Zona Primera Sección, Urb. San Gerardo' },
-  { name: 'TIRESPEED VALENCIA CA.',                     city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Montes de Oca cruce con Rojas Queipo, Edif. Gardilin, Of. 0102' },
-  { name: 'CAR\'S BOUTIQUE C.A.',                       city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Carlos Sanda, Edif. Capriso, PB, Local R, Urb. El Viñedo' },
-  { name: 'CORPORACION RIMO CAUCHOS C.A.',              city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Sesquicentenario, Local N° 92-201, Sector Antonio José de Sucre' },
-  { name: 'TOYOVAL C.A',                                city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Bolívar Norte, Local N° 108-118, Sector San José' },
-  { name: 'TIRE GOLD ONE, C.A',                        city: 'TOCUYITO',       state: 'Carabobo',         direccion: 'Av. La Cruz cruce con Vía de Servicio, Casa Lote N° 2, Urb. Pocaterra, Tocuyito' },
-  { name: 'NEUMATICO EXPRESS C.A.',                     city: 'SAN DIEGO',      state: 'Carabobo',         direccion: 'Av. 73, Carretera Vía San Diego N° 300, Local Complejos de Oficina N° 11, Urb. Industrial San Diego' },
-  { name: 'TALLER HIGH PERFORMANCE 4X4, C.A',           city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Calle Colombia cruce con Av. Paseo Cabriales, Galpón N° 92-42, Sector San Blas' },
-  { name: 'AUTO BOOM SERVICES, C.A',                    city: 'NAGUANAGUA',     state: 'Carabobo',         direccion: 'Calle Naguanagua N° Cívico 184-69, Local N/I, Sector N/I' },
-  { name: 'SERVICAUCHOS EL ROMANCE C.A',                city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Enrique Tejera, Sector C, Entrada a Bloque 3, Local N° 2, Urb. El Palotal' },
-  { name: 'ARSENAL 4WD C.A',                            city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. 106, Casa 47C, N° 130, Urb. Prebo' },
-  { name: 'INVERSIONES GLIA C.A.',                      city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Isabelica, Local N° 92-201, Local 2, Sector Plaza de Toros' },
-  { name: 'TECNOCAUCHOS EL VIÑEDO C.A.',                city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Av. Carlos Sanda, Local N° 105-67, Urb. Viñedo' },
-  { name: 'NEUMATICOS REP, C.A',                        city: 'VALENCIA',       state: 'Carabobo',         direccion: 'Callejón Mujica, Edif. Frameca C, Piso 10, Apt. 10-D, Urb. Agua Blanca' },
-  { name: 'RUEDAS DARIO. C.A.',                         city: 'SAN FRANCISCO',  state: 'Zulia',            direccion: 'Prolongación Circunvalación N° 2, Av. 60, Sector Los Olivos N° 68-42, Maracaibo' },
-  { name: 'BEST IMPORT CARS`S 75 C.A.',                 city: 'BARQUISIMETO',   state: 'Lara',             direccion: 'Cr. 24 entre Calles 17 y 18, Local 17-43, Sector Centro, Barquisimeto' },
-  { name: 'TIRES SHOP, C.A',                            city: 'BARQUISIMETO',   state: 'Lara',             direccion: 'Cr. 19 esq. Calle 12, Local N° 1, Sector Centro' },
-  { name: 'CE236',                                      city: 'ACARIGUA',       state: 'Lara',             direccion: 'Calle 32 entre Av. 25 y 26, Local N° 01, Sector Prolongación, Acarigua' },
-  { name: 'CAUCHOS TRIPLE A, C.A',                      city: 'BARQUISIMETO',   state: 'Lara',             direccion: 'Cr. 1 con Calles 22 y 23, Local N° 1, Zona Industrial III' },
-  { name: 'IMPORTADORA Y SUMINISTROS ACARIGUA C.A',     city: 'ACARIGUA',       state: 'Portuguesa',       direccion: 'Av. Circunvalación Sur con Av. 2, Galpón S/N, Sector Barrio Bolívar' },
-  { name: 'COMERCIALIZADORA VALSOF TIRES, C.A',         city: 'GUANARE',        state: 'Portuguesa',       direccion: 'Av. Simón Bolívar, Entrada a la Av. Principal del Barrio La Importancia, Local N° 2' },
-  { name: 'MANUEL ANTONIO MARQUEZ BAIDEZ',              city: 'GUANARE',        state: 'Portuguesa',       direccion: 'Av. Simón Bolívar, CC Bitondo, Nivel PB, Local 3, Sector La Pastora' },
+  // ── CARACAS / Distrito Capital ──────────────────────────────
+  { name: 'NEUMASTER 28 C.A.',                                          city: 'CARACAS', state: 'Miranda',          direccion: 'Av. Ppal. Colinas de Bello Monte con Av. Leonardo Da Vinci S/N, Sector Est. de Servicios' },
+  { name: 'MULTISERVICIOS CICLON LOS CHAGUARAMOS C.A.',                 city: 'CARACAS', state: 'Distrito Capital', direccion: 'Calle Bellas Artes entre Av. Ciencias y El Estadium, Qta. Susana' },
+  { name: 'ROYAL AUTORAMA C.A.',                                        city: 'CARACAS', state: 'Distrito Capital', direccion: 'Avda. Tamanaco N° 9, El Rosal' },
+  { name: 'GRUPO TIRES GUNS 401, CA',                                   city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. Páez, Edif. Saumell Palace, PB, Local A, Urb. El Paraíso' },
+  { name: 'SERVIEXPRESS PASEO LA CASTELLANA 19, CA',                    city: 'CARACAS', state: 'Distrito Capital', direccion: 'Calle José Félix Ribas con Av. Ppal. La Castellana, Local 10, Urb. La Castellana' },
+  { name: 'INVERSIONES HFJ 4X4 RUSTICARS, CA',                          city: 'CARACAS', state: 'Distrito Capital', direccion: 'Calle Primera c/c Transversal Izquierda, Edif. Yanucci, PB, Local LCPB-A, Urb. Boleíta' },
+  { name: 'CAUCHOS LOS TAVARES C.A',                                    city: 'CARACAS', state: 'Distrito Capital', direccion: '1era Transv. c/c La Línea, Los Dos Caminos' },
+  { name: 'SKY TIRES 7, CA',                                            city: 'CARACAS', state: 'Miranda',          direccion: 'Calle Sanatorio del Ávila entre Calle Vargas y Av. Ppal. Boleíta Norte, Edif. Comercial PB' },
+  { name: 'NUEVA CARACAS CAUCHOS 2021, CA',                             city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. Las Ciencias y Calle Razzeti, Local S/N, Sector Casco Central, Santa Mónica' },
+  { name: 'SPEED RACING C.A.',                                          city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. El Estadium entre Calle Sanz y Risquez, Los Chaguaramos' },
+  { name: 'IMPORTACIONES Y EXPORTACIONES EQUIMAR, CA',                  city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. El Estadium con Calle Sanz, Qta. Belén, Sector III, Urb. Los Chaguaramos' },
+  { name: 'RACING RUEDAS 99 C.A',                                       city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. Sucre, Galpón N° 38, Local D, Los Dos Caminos' },
+  { name: 'CORPORACION EXIAUTO CA',                                     city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. Principal de Los Ruices, Edif. Exiauto, Local Exiauto Toyota, Urb. Los Ruices' },
+  { name: 'INVERSIONES SARAY CRJ C.A.',                                 city: 'CARACAS', state: 'Distrito Capital', direccion: 'Calle Stadium con Alma Mater, Qta. Santa Eduvigis, Los Chaguaramos' },
+  { name: 'CORPORACION ROCO 4WD PERFORMANCE, CA',                       city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. Libertador c/Calle El Muñeco, Local N° 27, Urb. Chacao' },
+  { name: 'AUTOSERVICIOS Y CAUCHOS AVILA, CA',                          city: 'CARACAS', state: 'Miranda',          direccion: 'Av. Libertador esq. Calle José Félix Sosa, Local N° 10-11, Urb. Bello Campo, Chacao' },
+  { name: 'RADIAL SUPER GOMA. C.A.',                                    city: 'CARACAS', state: 'Distrito Capital', direccion: 'Av. Simón Planas, Qta. Guaricavila, Santa Mónica' },
+  { name: 'MULTISERVICIOS DAKAR C.A.',                                  city: 'CARACAS', state: 'Distrito Capital', direccion: 'Primera Avenida Sur, Altamira, Edif. 2015-222, Piso Mezz.' },
+  { name: 'MULTISERVICIOS LUCENYEPEZ 4X4 CA',                           city: 'CARACAS', state: 'Distrito Capital', direccion: 'Calle Real Prados de María, Est. de Serv. PDV N° 1-2, Urb. Prados de María' },
+  { name: 'NOMAD 4WD CA',                                               city: 'CARACAS', state: 'Distrito Capital', direccion: 'Calle San Ignacio de Loyola, Qta. Italmueble, Piso 1, Urb. Chacao' },
+
+  // ── MIRANDA ─────────────────────────────────────────────────
+  { name: 'CAUCHOS ACCESORIOS TOÑO WHEELS 028 CA',                      city: 'SAN ANTONIO DE LOS ALTOS', state: 'Miranda', direccion: 'Ctra. Panamericana Km 13, CC Capo di Monte, Nivel PB, Locales PB1 y PB2' },
+  { name: 'CAUCHOS Y ACCESORIOS PARA AUTOS LA RECTA DE LAS MINAS 2120', city: 'SAN ANTONIO DE LOS ALTOS', state: 'Miranda', direccion: 'Ctra. Panamericana, CC Club de Campo, Nivel PS, Local S2-1, Las Minas Km 16' },
+  { name: 'INVERSIONES JFDG 4X4, CA',                                   city: 'CAUCAGUITA',               state: 'Miranda', direccion: 'Calle Principal, Sector Parque Kaiza, Edif. Les Suites, Piso 1, Of. 1-4, Urb. Miravila' },
+  { name: 'MULTISERVICIOS JEMA EL TAMBOR C.A.',                         city: 'LOS TEQUES',               state: 'Miranda', direccion: 'Av. Pedro Russo Ferrer, Local N° 4, Galpón S/N, Urb. El Tambor' },
+
+  // ── CARABOBO ────────────────────────────────────────────────
+  { name: 'LLANTAS J.M. 2018, C.A',                                     city: 'VALENCIA',   state: 'Carabobo', direccion: 'Calle 91 Michelena N° Cívico 86-19, Local S/N, Urb. La Michelena' },
+  { name: 'HM LLANTAS VALENCIA, C.A',                                   city: 'VALENCIA',   state: 'Carabobo', direccion: 'Calle 1, Parcela Integrada, Local N° F2-B, Urb. Industrial La Caracarita, Güigüe' },
+  { name: 'EXPOTIRES, C.A',                                             city: 'VALENCIA',   state: 'Carabobo', direccion: 'Calle 123, Local 103-18, Zona Primera Sección, Urb. San Gerardo' },
+  { name: 'TOYOVAL C.A',                                                city: 'VALENCIA',   state: 'Carabobo', direccion: 'Av. Bolívar Norte, Local N° 108-118, Sector San José' },
+  { name: 'SPEED SHOP 01 C.A.',                                         city: 'VALENCIA',   state: 'Carabobo', direccion: 'Av. Bolívar Norte a 100 mts. Redoma de Guaparo' },
+  { name: 'PROTIRES LOS COLEGIOS, C.A',                                 city: 'VALENCIA',   state: 'Carabobo', direccion: 'Av. 101, Casa Parcela N° 11, Urb. Guaparo, Manzana 14, N° 155-91' },
+  { name: 'LLANTAVAL C.A.',                                             city: 'VALENCIA',   state: 'Carabobo', direccion: 'Av. 68, Local Parcela N° 155, Zona Parque Industrial La Quizanda' },
+  { name: 'TIRESPEED VALENCIA CA.',                                     city: 'VALENCIA',   state: 'Carabobo', direccion: 'Av. Montes de Oca cruce con Rojas Queipo, Edif. Gardilin, Of. 0102' },
+  { name: 'TECNOCAUCHOS EL VIÑEDO C.A.',                                city: 'VALENCIA',   state: 'Carabobo', direccion: 'Av. Carlos Sanda, Local N° 105-67, Urb. Viñedo' },
+  { name: 'RUEDAS + C.A.',                                              city: 'NAGUANAGUA', state: 'Carabobo', direccion: 'Av. Universidad N° 102 con Calle 187, Local N° 187-7' },
+  { name: 'AUTO BOOM SERVICES, C.A',                                    city: 'NAGUANAGUA', state: 'Carabobo', direccion: 'Calle Naguanagua N° Cívico 184-69, Local N/I' },
+  { name: 'SUSPENSION Y ACCESORIOS NAGUANAGUA 4X4 C.A.',                city: 'NAGUANAGUA', state: 'Carabobo', direccion: 'Calle Hermogenes López c/Av. Universidad, Local N° 180-153, Barrio Nueva Esparta' },
+
+  // ── ZULIA ───────────────────────────────────────────────────
+  { name: 'RUEDAS DARIO, C.A.',                                         city: 'MARACAIBO', state: 'Zulia', direccion: 'Av. 60 entre Calle 68 y 68A, Local N° 68-30, Urb. Los Olivos' },
+  { name: 'ZU CAUCHO EXPRESS, C.A',                                     city: 'MARACAIBO', state: 'Zulia', direccion: 'Calle 67 (Cecilio Acosta), Local N° 3H-12' },
+  { name: 'MULTICAUCHO LA LIMPIA, C.A',                                 city: 'MARACAIBO', state: 'Zulia', direccion: 'Av. La Limpia, Calle 70, Local N° 85-91, Sector Ayacucho' },
+
+  // ── LARA ────────────────────────────────────────────────────
+  { name: 'RALI CAUCHOS C.A',                                           city: 'BARQUISIMETO', state: 'Lara', direccion: 'Av. Libertador con Av. Morán y Vereda 2, Casa N° 2A, Urb. Bararida' },
+  { name: 'TIRES SHOP, C.A',                                            city: 'BARQUISIMETO', state: 'Lara', direccion: 'Cr. 19 esq. Calle 12, Local N° 1, Sector Centro' },
+  { name: 'OFFROAD 4WD, C.A',                                           city: 'BARQUISIMETO', state: 'Lara', direccion: 'Cr. 25 entre Calles 27 y 28, Local N° 27-62, Sector Centro' },
+  { name: 'SUPER CAUCHOS MERCABAR, S.A',                                city: 'BARQUISIMETO', state: 'Lara', direccion: 'Av. Moyetones con Calle D, Local S/N, Zonal Industrial III' },
+  { name: 'RESERCAUCHOS CHURUN CA.',                                    city: 'BARQUISIMETO', state: 'Lara', direccion: 'Av. Lara, Carrera 1 con Calle 8, CC Churún Merún, Nivel B, Local D-06, Urb. Nueva Segovia' },
+  { name: 'TOYOSOL, C.A',                                               city: 'CARORA',       state: 'Lara', direccion: 'Av. Francisco de Miranda cruce con Calle 32, Local Toyosol, Urb. Santa Rita' },
+
+  // ── PORTUGUESA ──────────────────────────────────────────────
+  { name: 'AMERICAN CAUCHOS C.A',                                       city: 'ACARIGUA', state: 'Portuguesa', direccion: 'Calle 32 entre Av. 25 y 26, Local N° 01, Sector Prolongación' },
+
+  // ── BARINAS ─────────────────────────────────────────────────
+  { name: 'SUPER CAUCHOS LOS LLANOS C.A.',                              city: 'BARINAS', state: 'Barinas', direccion: 'Av. Agustín Codazzi N° 6, Sector Vista Hermosa' },
+
+  // ── ARAGUA ──────────────────────────────────────────────────
+  { name: 'CAUCHOS UNIVERSAL D.C.S. C.A.',                              city: 'MARACAY', state: 'Aragua', direccion: 'Av. Los Cedros con Calle El Canal, Edif. Rosa María, PB' },
+  { name: 'EUROCAUCHOS MILENIUM C.A.',                                  city: 'MARACAY', state: 'Aragua', direccion: 'Av. Intercomunal Santiago Mariño con Calle Las Industrias' },
+  { name: 'CAUCHOS CAMPO ELIAS C.A.',                                   city: 'MARACAY', state: 'Aragua', direccion: 'Calle Campo Elias, Casa Galpón N° 13, Sector La Romana' },
+  { name: 'QUIK SERVICE ELITE, C.A',                                    city: 'MARACAY', state: 'Aragua', direccion: 'Av. Sucre cruce con Calle Tercera, Local N° A-1, Urb. La Soledad' },
+  { name: 'G.P TIRES LA ENCRUCIJADA, C.A',                             city: 'TURMERO', state: 'Aragua', direccion: 'Av. Intercomunal Santiago Mariño, Local Fundo La Purica N° A32, La Encrucijada' },
+  { name: 'G & D CAR´S SHOP, C.A',                                     city: 'TURMERO', state: 'Aragua', direccion: 'Av. Intercomunal Maracay-Turmero, CC Empresarial y de Servicios Villas del Este, PB, Local N° 19' },
+
+  // ── TÁCHIRA ─────────────────────────────────────────────────
+  { name: 'ENRIQUE JAVIER BORRAS SEPULVEDA',                            city: 'SAN CRISTOBAL', state: 'Táchira', direccion: 'Carrera 19 con Calle 13 Victoria, PB, Local 1, Barrio Obrero' },
+  { name: 'JHONATHAN ENRIQUE CASTAÑEDA S.',                             city: 'SAN CRISTOBAL', state: 'Táchira', direccion: 'Carrera 9, Sector La Concordia, Casa N° 4-134' },
+  { name: 'CENTER CAUCHOS PUEBLO NUEVO C.A.',                           city: 'SAN CRISTOBAL', state: 'Táchira', direccion: 'Av. Principal de Pueblo Nuevo N° 18-49, Sector La Popita' },
+
+  // ── FALCÓN ──────────────────────────────────────────────────
+  { name: 'TODO CAUCHOS CORO C.A.',                                     city: 'CORO', state: 'Falcón', direccion: 'Av. Ramón Antonio Medina con Calle Las Brisas, Casa S/N, San José' },
+
+  // ── TRUJILLO ────────────────────────────────────────────────
+  { name: 'TECNI CAUCHOS VALERA, C.A',                                  city: 'VALERA', state: 'Trujillo', direccion: 'Calle 8 con Calle Maya, Local Galpones G.B Inca, Sector La Plata' },
+
+  // ── SUCRE ───────────────────────────────────────────────────
+  { name: 'CENTRO DEL CAUCHO C.A',                                      city: 'CUMANA', state: 'Sucre', direccion: 'Av. Gómez Rubio, frente al Parque Cumaná' },
+
+  // ── ANZOÁTEGUI ──────────────────────────────────────────────
+  { name: 'NASCAR TYRE CENTER CA',                                      city: 'PUERTO LA CRUZ', state: 'Anzoátegui', direccion: 'Av. Nueva Esparta, Local S/N, Sector Venecia' },
+  { name: 'NEUMATICOS AQUI VC, CA',                                     city: 'BARCELONA',      state: 'Anzoátegui', direccion: 'Av. Jorge Rodríguez, Edif. 4-7, Piso 1, Local 1, Sector Las Colinas del Neverí' },
+
+  // ── BOLÍVAR ─────────────────────────────────────────────────
+  { name: 'TECNI CAUCHOS CHIRICA C.A.',                                 city: 'SAN FELIX',      state: 'Bolívar', direccion: 'Av. Antonio Cisneros S/N, Zona Industrial Chirica, frente Estación Chirica' },
+  { name: 'SUPER CAUCHOS LA VICTORIA, CA',                              city: 'UPATA',          state: 'Bolívar', direccion: 'Ctra. Nacional Upata–San Félix, Local Galpón N° 1, Sector Santo Domingo' },
+  { name: 'MULTICAUCHOS LA UNIDAD C.A.',                                city: 'SAN FELIX',      state: 'Bolívar', direccion: 'Av. Manuel Piar, Sector La Unidad, frente Plaza Las Batallas' },
+  { name: 'MULTISERVICIOS Y CAUCHERA LOS GOCHOS CA',                    city: 'SAN FELIX',      state: 'Bolívar', direccion: 'Av. Gerónimo Ortal cruce con Calle 4 (Calle Ramírez), Local S/N, Sector Centro' },
+  { name: 'RADI-CAR CENTER COMPAÑIA ANONIMA',                           city: 'PUERTO ORDAZ',   state: 'Bolívar', direccion: 'Av. Guayana, CC Ciudad Alta Vista, Local N° 30, Urb. Alta Vista Sur' },
+  { name: 'CAUCHOS PORRUA C.A.',                                        city: 'PUERTO ORDAZ',   state: 'Bolívar', direccion: 'Calle Oriente S/N, Sector Castillito' },
+  { name: 'RADICAR MULTISERVICIOS & ACCESORIOS 4X4, C.A',              city: 'CIUDAD GUAYANA', state: 'Bolívar', direccion: 'Av. Guayana, CC Ciudad Alta Vista I, Nivel Piso 2, Locales 25, 26 y 27, Sector Alta Vista' },
+  { name: 'GRUPO MM4WD, CA',                                            city: 'CIUDAD GUAYANA', state: 'Bolívar', direccion: 'Calle Manzana 02, Parcela N° 01, Local N° 06, Urb. Los Samanes' },
+  { name: 'MULTICAUCHOS EL POLACO, CA',                                 city: 'CIUDAD BOLIVAR', state: 'Bolívar', direccion: 'Av. Raúl Leoni, Edif. Rossi, PB, Local N° 1, Urb. Bicentenario' },
+  { name: '4WHEELS, CA',                                                city: 'CIUDAD BOLIVAR', state: 'Bolívar', direccion: 'Av. República c/c Calle Vidal, Local N° 81, Sector República, Parroquia Catedral' },
 ]
 
 const dealers = rawDealers.map((d, i) => {
@@ -124,7 +162,7 @@ function DealerCard({ dealer, highlighted, cardRef }) {
     >
       <div className="h-0.5 w-8 bg-toyo-blue mb-4 group-hover:w-full transition-all duration-500" />
       <p className="text-xs font-display font-bold text-toyo-blue uppercase tracking-wider mb-1">
-        {dealer.state}
+        {dealer.state} · {dealer.city}
       </p>
       <h3 className="font-display font-bold text-gray-900 text-sm leading-tight mb-2">
         {dealer.name}
