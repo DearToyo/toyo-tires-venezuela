@@ -5,6 +5,7 @@ import { MapPin, ArrowLeft, ChevronRight } from 'lucide-react'
 import { tireDatabase, slugToEntry } from '@/data/tires'
 import { tireDetails } from '@/data/tireDetails'
 import SizesAccordion from '@/components/SizesAccordion'
+import TireCarousel from '@/components/TireCarousel'
 
 function groupSizesByRim(sizes) {
   const groups = {}
@@ -49,6 +50,12 @@ export default function TireProductPage({ params }) {
 
   const rimGroups = groupSizesByRim(tire.sizes)
 
+  // Build image list: frontal + lateral (both always exist for new images)
+  const tireImages = [
+    `/images/productos/${slug}/frontal.png`,
+    `/images/productos/${slug}/lateral.png`,
+  ]
+
   return (
     <div className="min-h-screen">
 
@@ -85,21 +92,8 @@ export default function TireProductPage({ params }) {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            {/* Tire image */}
-            <div className="relative aspect-square max-w-md mx-auto w-full bg-gray-50 flex items-center justify-center">
-              {tire.image ? (
-                <Image
-                  src={tire.image}
-                  alt={tire.name}
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 45vw"
-                  className="object-contain p-10"
-                  priority
-                />
-              ) : (
-                <span className="text-6xl font-display font-black text-gray-200">TOYO</span>
-              )}
-            </div>
+            {/* Tire carousel */}
+            <TireCarousel images={tireImages} name={tire.name} />
 
             {/* Info */}
             <div>
@@ -216,17 +210,9 @@ export default function TireProductPage({ params }) {
               ))}
             </div>
 
-            {/* Tire image */}
-            <div className="relative aspect-square max-w-sm mx-auto w-full bg-gray-50 lg:sticky lg:top-28">
-              {tire.image && (
-                <Image
-                  src={tire.image}
-                  alt={tire.name}
-                  fill
-                  sizes="(max-width: 1024px) 80vw, 40vw"
-                  className="object-contain p-10"
-                />
-              )}
+            {/* Tire carousel (features section) */}
+            <div className="lg:sticky lg:top-28">
+              <TireCarousel images={tireImages} name={tire.name} />
             </div>
           </div>
         </div>
