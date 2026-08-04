@@ -39,7 +39,7 @@ const productLines = [
     tagline:     'Domina cualquier terreno',
     description: 'Diseñada para camionetas y SUVs que no conocen límites. Desde carretera hasta los senderos más exigentes.',
     href:        '/productos?line=open-country',
-    image:       '/images/productos/open-country-rt-trail/OPRT_Trail_35x12_50R17_Right.png',
+    image:       '/images/productos/open-country-rt-trail/frontal.png',
     models:      ['A/T III', 'M/T', 'R/T', 'R/T Trail', 'H/T II'],
   },
   {
