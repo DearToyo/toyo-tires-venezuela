@@ -190,7 +190,7 @@ export default function Home() {
                     alt={line.name}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-contain p-8 group-hover:scale-105 transition-transform duration-500 mix-blend-multiply"
+                    className="object-contain p-8 group-hover:scale-105 transition-transform duration-500 "
                   />
                 </div>
 

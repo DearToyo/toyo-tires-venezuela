@@ -93,7 +93,7 @@ export default function TireProductPage({ params }) {
                   alt={tire.name}
                   fill
                   sizes="(max-width: 1024px) 90vw, 45vw"
-                  className="object-contain p-10 mix-blend-multiply"
+                  className="object-contain p-10"
                   priority
                 />
               ) : (
@@ -224,7 +224,7 @@ export default function TireProductPage({ params }) {
                   alt={tire.name}
                   fill
                   sizes="(max-width: 1024px) 80vw, 40vw"
-                  className="object-contain p-10 mix-blend-multiply"
+                  className="object-contain p-10"
                 />
               )}
             </div>

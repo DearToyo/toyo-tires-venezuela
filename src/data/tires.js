@@ -7,7 +7,7 @@ export const tireDatabase = {
       line:         "Open Country",
       category:     "all-terrain",
       vehicleTypes: ["camioneta", "suv"],
-      image:        "/images/productos/open-country-at3/OPAT3_LT.jpg",
+      image:        "/images/productos/open-country-at3/frontal.png",
       description:  "El neumático todoterreno más versátil para uso diario y aventuras fuera de la carretera.",
       features: [
         "Equilibrio perfecto on-road / off-road",
@@ -49,7 +49,7 @@ export const tireDatabase = {
       line:         "Open Country",
       category:     "off-road",
       vehicleTypes: ["camioneta", "suv"],
-      image:        "/images/productos/open-country-mt/Toyo_OPMT_Fr.jpg",
+      image:        "/images/productos/open-country-mt/frontal.png",
       description:  "Neumático de lodo extremo para aventuras todoterreno intensas y caminos más exigentes.",
       features: [
         "Tracción superior en lodo y rocas",
@@ -82,7 +82,7 @@ export const tireDatabase = {
       line:         "Open Country",
       category:     "all-terrain",
       vehicleTypes: ["camioneta", "suv"],
-      image:        "/images/productos/open-country-rt/TOYO-OPEN-COUNTRY-RT-A.jpg",
+      image:        "/images/productos/open-country-rt/frontal.png",
       description:  "Híbrido robusto que combina capacidad todoterreno con confort en carretera.",
       features: [
         "Diseño híbrido A/T y M/T",
@@ -111,7 +111,7 @@ export const tireDatabase = {
       line:         "Open Country",
       category:     "all-terrain",
       vehicleTypes: ["camioneta", "suv"],
-      image:        "/images/productos/open-country-rt-trail/OPRT_Trail_35x12_50R17_Right.png",
+      image:        "/images/productos/open-country-rt-trail/frontal.png",
       description:  "Diseñado para aventureros que buscan más capacidad off-road sin sacrificar confort.",
       features: [
         "Mayor tracción todoterreno que A/T tradicional",
@@ -127,7 +127,7 @@ export const tireDatabase = {
       line:         "Open Country",
       category:     "todo-año",
       vehicleTypes: ["camioneta", "suv"],
-      image:        "/images/productos/open-country-ht2/main.jpg",
+      image:        "/images/productos/open-country-ht2/frontal.png",
       description:  "Neumático de carretera premium para SUVs y camionetas de uso diario intenso.",
       features: [
         "Diseño optimizado para autopista",
@@ -153,7 +153,7 @@ export const tireDatabase = {
       line:         "Proxes",
       category:     "performance",
       vehicleTypes: ["auto", "suv"],
-      image:        "/images/productos/proxes-sport-2/20211128_PXSP2_hidari.jpg",
+      image:        "/images/productos/proxes-sport-2/frontal.png",
       description:  "Neumático de alto rendimiento para manejo preciso y agarre excepcional en seco y mojado.",
       features: [
         "Manejo preciso en curvas cerradas",
@@ -184,7 +184,7 @@ export const tireDatabase = {
       line:         "Proxes",
       category:     "performance",
       vehicleTypes: ["suv"],
-      image:        "/images/productos/proxes-st3/main.jpg",
+      image:        "/images/productos/proxes-st3/frontal.png",
       description:  "Neumático de alto rendimiento diseñado específicamente para SUVs deportivos exigentes.",
       features: [
         "Optimizado para SUVs de alto rendimiento",
@@ -219,7 +219,7 @@ export const tireDatabase = {
       line:         "Proxes",
       category:     "competition",
       vehicleTypes: ["auto"],
-      image:        "/images/productos/proxes-r888r/img-rxr8r__1_.png",
+      image:        "/images/productos/proxes-r888r/frontal.png",
       description:  "Neumático de competición DOT para pista, autocross y uso en calle de alto rendimiento.",
       features: [
         "Diseñado para uso en pista",
@@ -248,7 +248,7 @@ export const tireDatabase = {
       line:         "Proxes",
       category:     "todo-año",
       vehicleTypes: ["auto", "suv"],
-      image:        "/images/productos/proxes-comfort/20201105_PXCM_hidari.jpg",
+      image:        "/images/productos/proxes-comfort/frontal.png",
       description:  "Neumático premium enfocado en comodidad, conducción silenciosa y larga duración.",
       features: [
         "Experiencia de conducción ultra silenciosa",
@@ -275,7 +275,7 @@ export const tireDatabase = {
       line:         "Proxes",
       category:     "todo-año",
       vehicleTypes: ["auto"],
-      image:        "/images/productos/proxes-tm1/main.jpg",
+      image:        "/images/productos/proxes-tm1/frontal.png",
       description:  "Neumático deportivo touring con excelente equilibrio de rendimiento y bajo nivel de ruido.",
       features: [
         "Diseño direccional en V atractivo",
@@ -295,12 +295,28 @@ export const tireDatabase = {
       ],
     },
 
+    tr1: {
+      name:         "Proxes TR1",
+      line:         "Proxes",
+      category:     "performance",
+      vehicleTypes: ["auto"],
+      image:        "/images/productos/proxes-tr1/frontal.png",
+      description:  "Neumático de alto rendimiento con diseño direccional y agarre excepcional en seco y mojado.",
+      features: [
+        "Diseño direccional de alto agarre",
+        "Excelente estabilidad en curvas",
+        "Frenado preciso en seco y mojado",
+        "Bajo nivel de ruido interior",
+      ],
+      sizes: [],
+    },
+
     vimode2: {
       name:         "Proxes Vi-Mode II",
       line:         "Proxes",
       category:     "performance",
       vehicleTypes: ["auto"],
-      image:        "/images/productos/proxes-vi-mode-2/main.jpg",
+      image:        "/images/productos/proxes-vi-mode-2/frontal.png",
       description:  "Neumático deportivo moderno con diseño único Falcon Wing y compuesto de sílice avanzado.",
       features: [
         "Diseño moderno Falcon Wing Block",
@@ -355,6 +371,7 @@ export const keyToSlug = {
   r888r:   'proxes-r888r',
   comfort: 'proxes-comfort',
   tm1:     'proxes-tm1',
+  tr1:     'proxes-tr1',
   vimode2: 'proxes-vi-mode-2',
 }
 
@@ -369,6 +386,7 @@ export const slugToEntry = {
   'proxes-r888r':          { line: 'proxes',      key: 'r888r' },
   'proxes-comfort':        { line: 'proxes',      key: 'comfort' },
   'proxes-tm1':            { line: 'proxes',      key: 'tm1' },
+  'proxes-tr1':            { line: 'proxes',      key: 'tr1' },
   'proxes-vi-mode-2':      { line: 'proxes',      key: 'vimode2' },
 }
 
