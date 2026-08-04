@@ -66,7 +66,7 @@ export default function Home() {
             </p>
 
             <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-toyo-blue leading-none tracking-tight mb-6 animate-fade-in-up-d1">
-              Llantas que<br />
+              Cauchos que<br />
               van más lejos.
             </h1>
 
