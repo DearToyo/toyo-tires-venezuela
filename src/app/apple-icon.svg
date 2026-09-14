@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <rect width="180" height="180" rx="22" fill="#0062B0"/>
+  <text
+    x="90"
+    y="138"
+    font-family="Arial Black, Arial, sans-serif"
+    font-weight="900"
+    font-size="148"
+    text-anchor="middle"
+    fill="white"
+    letter-spacing="-4"
+  >T</text>
+</svg>
