@@ -1,66 +1,8 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
-import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
-const CACHE_KEY = 'toyo_geo_v2'
-
-async function geocode(dealer) {
-  const queries = [
-    `${dealer.direccion}, Venezuela`,
-    `${dealer.city}, ${dealer.state}, Venezuela`,
-  ]
-  for (const q of queries) {
-    try {
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1&countrycodes=ve`,
-        { headers: { 'User-Agent': 'ToyoTiresVenezuela/1.0 (toyotires.com.ve)' } }
-      )
-      const data = await res.json()
-      if (data.length > 0) return [parseFloat(data[0].lat), parseFloat(data[0].lon)]
-    } catch {}
-  }
-  return null
-}
-
-function GeocoderEffect({ dealers, onUpdate }) {
-  const didRun = useRef(false)
-
-  useEffect(() => {
-    if (didRun.current) return
-    didRun.current = true
-
-    ;(async () => {
-      let cache = {}
-      try { cache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') } catch {}
-
-      const missing = dealers.filter(d => !cache[d.id])
-      if (missing.length === 0) return
-
-      for (const dealer of missing) {
-        await new Promise(r => setTimeout(r, 1150))
-        const coords = await geocode(dealer)
-        if (coords) {
-          cache[dealer.id] = coords
-          try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)) } catch {}
-          onUpdate({ ...cache })
-        }
-      }
-    })()
-  }, [dealers, onUpdate])
-
-  return null
-}
-
 export default function DistribuidoresMap({ dealers, onSelect }) {
-  const [geoCache, setGeoCache] = useState(() => {
-    try { return JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') } catch { return {} }
-  })
-
-  function getCoords(d) {
-    return geoCache[d.id] || [d.lat, d.lng]
-  }
-
   return (
     <MapContainer
       center={[8.5, -66.5]}
@@ -73,11 +15,10 @@ export default function DistribuidoresMap({ dealers, onSelect }) {
         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         maxZoom={19}
       />
-      <GeocoderEffect dealers={dealers} onUpdate={setGeoCache} />
       {dealers.map((d) => (
         <CircleMarker
           key={d.id}
-          center={getCoords(d)}
+          center={[d.lat, d.lng]}
           radius={7}
           pathOptions={{
             color: '#004a8a',
@@ -98,6 +39,11 @@ export default function DistribuidoresMap({ dealers, onSelect }) {
               <p style={{ color: '#555', fontSize: 11, lineHeight: 1.5, margin: 0 }}>
                 {d.direccion}
               </p>
+              {d.approx && (
+                <p style={{ color: '#888', fontSize: 10, lineHeight: 1.4, margin: '6px 0 0', fontStyle: 'italic' }}>
+                  Ubicación aproximada en el mapa
+                </p>
+              )}
             </div>
           </Popup>
         </CircleMarker>
