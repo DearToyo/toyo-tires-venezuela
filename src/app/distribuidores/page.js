@@ -3,45 +3,12 @@ import { useState, useMemo, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import { MapPin, Search, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { dealerCoords } from '@/data/dealerCoords'
 
 const DistribuidoresMap = dynamic(
   () => import('@/components/DistribuidoresMap'),
   { ssr: false, loading: () => <div className="w-full h-full bg-gray-100 flex items-center justify-center"><span className="text-gray-400 text-sm">Cargando mapa...</span></div> }
 )
-
-/* ── City base coordinates ─────────────────────────────── */
-const CITY_COORDS = {
-  'CARACAS':                  [10.4806,  -66.9036],
-  'SAN ANTONIO DE LOS ALTOS': [10.3742,  -67.0306],
-  'CAUCAGUITA':               [10.4833,  -66.7167],
-  'LOS TEQUES':               [10.3439,  -67.0408],
-  'VALENCIA':                 [10.1765,  -67.9763],
-  'NAGUANAGUA':               [10.2500,  -68.0000],
-  'MARACAIBO':                [10.6306,  -71.6406],
-  'BARQUISIMETO':             [10.0678,  -69.3467],
-  'CARORA':                   [10.1667,  -70.0833],
-  'ACARIGUA':                 [ 9.5600,  -69.2000],
-  'BARINAS':                  [ 8.6235,  -70.2072],
-  'MARACAY':                  [10.2389,  -67.5938],
-  'TURMERO':                  [10.2294,  -67.4769],
-  'SAN CRISTOBAL':            [ 7.7664,  -72.2253],
-  'CORO':                     [11.3989,  -69.6722],
-  'VALERA':                   [ 9.3167,  -70.6000],
-  'CUMANA':                   [10.4503,  -64.1833],
-  'BARCELONA':                [10.1308,  -64.6933],
-  'PUERTO LA CRUZ':           [10.2119,  -64.6386],
-  'SAN FELIX':                [ 8.3739,  -62.6636],
-  'CIUDAD GUAYANA':           [ 8.3539,  -62.6558],
-  'PUERTO ORDAZ':             [ 8.2949,  -62.7282],
-  'CIUDAD BOLIVAR':           [ 8.1217,  -63.5497],
-  'UPATA':                    [ 8.0142,  -62.3932],
-}
-
-function coords(city, index) {
-  const base = CITY_COORDS[city.toUpperCase().trim()] || [8.0, -66.0]
-  const offset = (n) => (n % 7 - 3) * 0.018
-  return [base[0] + offset(index * 3), base[1] + offset(index * 5 + 1)]
-}
 
 /* ── Dealer data from Excel ────────────────────────────── */
 const rawDealers = [
@@ -145,10 +112,7 @@ const rawDealers = [
   { name: '4WHEELS, CA',                                                city: 'CIUDAD BOLIVAR', state: 'Bolívar', direccion: 'Av. República c/c Calle Vidal, Local N° 81, Sector República, Parroquia Catedral' },
 ]
 
-const dealers = rawDealers.map((d, i) => {
-  const [lat, lng] = coords(d.city, i)
-  return { ...d, id: i + 1, lat, lng }
-})
+const dealers = rawDealers.map((d, i) => ({ ...d, id: i + 1, ...dealerCoords[i + 1] }))
 
 const ALL_STATES = ['Todos', ...Array.from(new Set(dealers.map(d => d.state))).sort()]
 

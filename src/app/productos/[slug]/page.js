@@ -7,6 +7,22 @@ import { tireDetails } from '@/data/tireDetails'
 import SizesAccordion from '@/components/SizesAccordion'
 import TireCarousel from '@/components/TireCarousel'
 
+// Modelos con logo oficial en /public/images/logos/<slug>.png
+const LOGO_SLUGS = new Set([
+  'open-country-at3',
+  'open-country-mt',
+  'open-country-rt',
+  'open-country-rt-trail',
+  'open-country-ht2',
+  'proxes-sport-2',
+  'proxes-r888r',
+  'proxes-st3',
+  'proxes-comfort',
+  'proxes-tm1',
+  'proxes-tr1',
+  'proxes-vi-mode-2',
+])
+
 function groupSizesByRim(sizes) {
   const groups = {}
   for (const size of sizes) {
@@ -97,12 +113,25 @@ export default function TireProductPage({ params }) {
 
             {/* Info */}
             <div>
-              <p className="text-xs font-display font-bold tracking-superwide uppercase text-toyo-blue mb-2">
-                {tire.line}
-              </p>
-              <h2 className="font-display font-black text-4xl md:text-5xl text-gray-900 leading-none mb-2">
-                {tire.name.replace(tire.line + ' ', '')}
-              </h2>
+              {LOGO_SLUGS.has(slug) ? (
+                <h2 className="mb-5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/images/logos/${slug}.png`}
+                    alt={tire.name}
+                    className="block w-full max-w-[420px] h-auto"
+                  />
+                </h2>
+              ) : (
+                <>
+                  <p className="text-xs font-display font-bold tracking-superwide uppercase text-toyo-blue mb-2">
+                    {tire.line}
+                  </p>
+                  <h2 className="font-display font-black text-4xl md:text-5xl text-gray-900 leading-none mb-2">
+                    {tire.name.replace(tire.line + ' ', '')}
+                  </h2>
+                </>
+              )}
               <p className="text-xs font-display font-bold tracking-superwide uppercase text-gray-400 mb-8">
                 {details.subtitle}
               </p>
