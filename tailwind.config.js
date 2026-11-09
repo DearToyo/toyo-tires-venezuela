@@ -21,8 +21,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans:    ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        sans:    ['HelveticaNeue', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+        display: ['HelveticaNeue', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
       },
       fontSize: {
         '8xl':  ['6rem',   { lineHeight: '1' }],

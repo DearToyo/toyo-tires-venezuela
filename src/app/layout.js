@@ -1,10 +1,6 @@
 import './globals.css'
-import { Inter, Montserrat } from 'next/font/google'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 
 export const metadata = {
   title: {
@@ -75,7 +71,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="es">
+      <head>
+        <link rel="preload" href="/fonts/HelveticaNeueRoman.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+      </head>
       <body className="font-sans">
         <Navigation />
         <main>{children}</main>
