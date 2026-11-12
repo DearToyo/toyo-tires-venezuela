@@ -47,7 +47,7 @@ const productLines = [
     tagline:     'Rendimiento sin concesiones',
     description: 'Tecnología de alto rendimiento para autos y SUVs deportivos que exigen precisión, agarre y velocidad.',
     href:        '/productos?line=proxes',
-    image:       '/images/productos/proxes-sport-2/20211128_PXSP2_migi.jpg',
+    image:       '/images/productos/proxes-sport-2/card.png',
     models:      ['Sport 2', 'R888R', 'Comfort', 'TM1', 'ST III', 'Vi-Mode II'],
   },
 ]
@@ -177,7 +177,7 @@ export default function Home() {
             {productLines.map((line) => (
               <div
                 key={line.name}
-                className="group bg-white border border-gray-200 hover:border-toyo-blue hover:shadow-lg
+                className="group relative bg-white border border-gray-200 hover:border-toyo-blue hover:shadow-lg
                            transition-all duration-300 overflow-hidden"
               >
                 {/* Blue top accent */}
@@ -218,7 +218,8 @@ export default function Home() {
                     href={line.href}
                     className="inline-flex items-center gap-2 text-sm font-display font-bold text-toyo-blue
                                border-b border-toyo-blue/30 pb-0.5
-                               hover:border-toyo-blue transition-colors"
+                               hover:border-toyo-blue transition-colors
+                               after:absolute after:inset-0 after:content-['']"
                   >
                     Explorar {line.name}
                     <ArrowRight size={14} />
