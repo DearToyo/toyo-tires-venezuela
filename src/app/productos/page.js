@@ -13,7 +13,19 @@ const categoryMeta = {
   'competition': { label: 'Competición',     color: 'bg-purple-100 text-purple-700 border-purple-200' },
 }
 
-function ModelLogo({ line, name }) {
+function ModelLogo({ line, name, slug }) {
+  if (slug) {
+    return (
+      <div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`/images/logos/${slug}.png`}
+          alt={name}
+          className="block w-full max-w-[300px] h-auto"
+        />
+      </div>
+    )
+  }
   const variant = name.replace(line + ' ', '')
   return (
     <div className="flex flex-col leading-none">
@@ -54,16 +66,14 @@ function TireCard({ model }) {
             <div className="text-xs text-gray-400 mt-2 font-display tracking-widest uppercase">{model.name}</div>
           </div>
         )}
+        <span className={`absolute top-3 right-3 text-xs px-2 py-0.5 border ${meta.color} font-display font-semibold`}>
+          {meta.label}
+        </span>
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-toyo-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
       </div>
 
       <div className="p-6 flex flex-col gap-3 flex-1">
-        <div className="flex items-start justify-between gap-2">
-          <ModelLogo line={model.line} name={model.name} />
-          <span className={`text-xs px-2 py-0.5 border flex-shrink-0 ${meta.color} font-display font-semibold`}>
-            {meta.label}
-          </span>
-        </div>
+        <ModelLogo line={model.line} name={model.name} slug={model.slug} />
 
         <p className="text-sm text-gray-500 leading-relaxed">{model.description}</p>
 
@@ -114,7 +124,7 @@ export default function ProductosPage() {
             Nuestros Productos
           </h1>
           <p className="mt-4 text-gray-400 text-lg max-w-xl animate-fade-in-up-d2">
-            11 modelos. 2 líneas. Toda Venezuela cubierta.
+            {openCountryModels.length + proxesModels.length} modelos. 2 líneas. Toda Venezuela cubierta.
           </p>
         </div>
       </section>
