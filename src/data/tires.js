@@ -122,29 +122,6 @@ export const tireDatabase = {
       sizes: [],
     },
 
-    ht2: {
-      name:         "Open Country H/T II",
-      line:         "Open Country",
-      category:     "todo-año",
-      vehicleTypes: ["camioneta", "suv"],
-      image:        "/images/productos/open-country-ht2/frontal.png",
-      description:  "Neumático de carretera premium para SUVs y camionetas de uso diario intenso.",
-      features: [
-        "Diseño optimizado para autopista",
-        "Excelente economía de combustible",
-        "Marcha ultra silenciosa",
-        "Larga vida útil",
-      ],
-      sizes: [
-        "235/65 R17 108V",
-        "245/65 R17 111H XL",
-        "265/65 R17 111H XL",
-        "245/60 R18 105V",
-        "265/60 R18 110H",
-        "275/65 R18 116H",
-        "285/60 R18 116H",
-      ],
-    },
   },
 
   proxes: {
@@ -295,21 +272,6 @@ export const tireDatabase = {
       ],
     },
 
-    tr1: {
-      name:         "Proxes TR1",
-      line:         "Proxes",
-      category:     "performance",
-      vehicleTypes: ["auto"],
-      image:        "/images/productos/proxes-tr1/frontal.png",
-      description:  "Neumático de alto rendimiento con diseño direccional y agarre excepcional en seco y mojado.",
-      features: [
-        "Diseño direccional de alto agarre",
-        "Excelente estabilidad en curvas",
-        "Frenado preciso en seco y mojado",
-        "Bajo nivel de ruido interior",
-      ],
-      sizes: [],
-    },
 
     vimode2: {
       name:         "Proxes Vi-Mode II",
@@ -365,13 +327,11 @@ export const keyToSlug = {
   mt:      'open-country-mt',
   rt:      'open-country-rt',
   rtTrail: 'open-country-rt-trail',
-  ht2:     'open-country-ht2',
   sport2:  'proxes-sport-2',
   st3:     'proxes-st3',
   r888r:   'proxes-r888r',
   comfort: 'proxes-comfort',
   tm1:     'proxes-tm1',
-  tr1:     'proxes-tr1',
   vimode2: 'proxes-vi-mode-2',
 }
 
@@ -380,13 +340,11 @@ export const slugToEntry = {
   'open-country-mt':       { line: 'openCountry', key: 'mt' },
   'open-country-rt':       { line: 'openCountry', key: 'rt' },
   'open-country-rt-trail': { line: 'openCountry', key: 'rtTrail' },
-  'open-country-ht2':      { line: 'openCountry', key: 'ht2' },
   'proxes-sport-2':        { line: 'proxes',      key: 'sport2' },
   'proxes-st3':            { line: 'proxes',      key: 'st3' },
   'proxes-r888r':          { line: 'proxes',      key: 'r888r' },
   'proxes-comfort':        { line: 'proxes',      key: 'comfort' },
   'proxes-tm1':            { line: 'proxes',      key: 'tm1' },
-  'proxes-tr1':            { line: 'proxes',      key: 'tr1' },
   'proxes-vi-mode-2':      { line: 'proxes',      key: 'vimode2' },
 }
 

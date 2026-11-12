@@ -195,54 +195,6 @@ export const tireDetails = {
     ],
   },
 
-  /* ─── OPEN COUNTRY H/T II ────────────────────────── */
-  'open-country-ht2': {
-    heroLine:    'OPEN COUNTRY',
-    heroTagline: 'Carretera. Confort. Durabilidad.',
-    subtitle:    'NEUMÁTICO DE CARRETERA PARA SUV Y CAMIONETAS',
-    longDescription: [
-      'El Open Country H/T II es el neumático de carretera premium de Toyo para SUVs y camionetas de uso diario. Diseñado para ofrecer el máximo confort, silencio y durabilidad en pavimento.',
-      'Su banda de rodamiento simétrica de alta densidad proporciona una tracción uniforme y un desgaste prolongado, mientras que su diseño de canales optimiza la evacuación del agua en carretera mojada.',
-      'Para el conductor que recorre kilómetros en ciudad y autopista, el H/T II es la elección perfecta en comodidad y economía.',
-    ],
-    vehicleLabels: ['SUV / PICKUP', 'CARRETERA', 'TODO EL AÑO'],
-    performanceRatings: [
-      { label: 'Vida útil de la banda de rodamiento', value: 5.0 },
-      { label: 'Ruido del neumático',                 value: 5.0 },
-      { label: 'Comodidad de conducción',             value: 5.0 },
-      { label: 'Conducción en terreno seco',          value: 4.5 },
-      { label: 'Conducción en terreno húmedo',        value: 4.5 },
-      { label: 'Eficiencia de combustible',           value: 4.5 },
-      { label: 'Tracción todo terreno',               value: 2.5 },
-    ],
-    featuresDetailed: [
-      {
-        title: 'Diseño optimizado para autopista',
-        points: [
-          'Banda de rodamiento simétrica para desgaste uniforme.',
-          'Bloques continuos en el centro para mayor estabilidad en carretera.',
-          'Canales longitudinales que evacuan el agua eficientemente.',
-        ],
-      },
-      {
-        title: 'Conducción ultra silenciosa',
-        points: [
-          'Tecnología de variación de paso para minimizar el ruido.',
-          'Rigidez optimizada del bloque para reducir las vibraciones.',
-          'Compuesto especial que absorbe los impactos del pavimento.',
-        ],
-      },
-      {
-        title: 'Larga vida útil',
-        points: [
-          'Compuesto de alta resistencia al desgaste.',
-          'Diseñado para maximizar los kilómetros recorridos.',
-          'Excelente economía de combustible gracias a la baja resistencia al rodamiento.',
-        ],
-      },
-    ],
-  },
-
   /* ─── PROXES SPORT 2 ─────────────────────────────── */
   'proxes-sport-2': {
     heroLine:    'PROXES',

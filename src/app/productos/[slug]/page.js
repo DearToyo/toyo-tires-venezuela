@@ -13,13 +13,11 @@ const LOGO_SLUGS = new Set([
   'open-country-mt',
   'open-country-rt',
   'open-country-rt-trail',
-  'open-country-ht2',
   'proxes-sport-2',
   'proxes-r888r',
   'proxes-st3',
   'proxes-comfort',
   'proxes-tm1',
-  'proxes-tr1',
   'proxes-vi-mode-2',
 ])
 
