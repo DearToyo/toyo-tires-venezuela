@@ -64,7 +64,7 @@ export default function BuscadorPage() {
     return allModels
       .map((model) => {
         const matched = model.sizes.filter((s) => {
-          if (tab === 'size') return s.toLowerCase().replace(/\s/g, '').includes(q)
+          if (tab === 'size') return s.toLowerCase().replace(/\s/g, '').replace('zr', 'r').includes(q.replace('zr', 'r'))
           const m = s.match(/R(\d+)/); return m && m[1] === q
         })
         return matched.length > 0 ? { model, matchedSizes: matched } : null

@@ -24,14 +24,15 @@ const LOGO_SLUGS = new Set([
 function groupSizesByRim(sizes) {
   const groups = {}
   for (const size of sizes) {
-    const m = size.match(/\bR(\d{2})\b/)
+    const m = size.match(/\bZ?R(\d{2})\b/)
     if (!m) continue
     const rim = parseInt(m[1])
     if (!groups[rim]) groups[rim] = []
-    const rimStr = 'R' + rim
-    const idx = size.indexOf(rimStr)
-    const medida = size.substring(0, idx + rimStr.length).trim()
-    const carga  = size.substring(idx + rimStr.length).trim()
+    const idx = m.index + m[0].length
+    let medida = size.substring(0, idx).trim()
+    let carga  = size.substring(idx).trim()
+    // "35X12.50 R17 LT 121Q" -> medida "35X12.50 R17 LT", carga "121Q"
+    if (/^LT\s/.test(carga)) { medida += ' LT'; carga = carga.slice(3).trim() }
     groups[rim].push({ medida, carga })
   }
   return Object.entries(groups)
